@@ -20,7 +20,6 @@
 </head>
 <body class="bg-zinc-950 text-zinc-100 min-h-screen flex flex-col justify-between overflow-x-hidden select-none">
 
-  <!-- HEADER STREAMING CHUNK -->
   <header class="py-2 px-4 bg-zinc-900 border-b-2 border-zinc-800 flex justify-between items-center shrink-0">
     <div class="flex items-center space-x-2">
       <div class="w-3 h-3 bg-amber-500 rounded-sm animate-pulse"></div>
@@ -35,7 +34,6 @@
     </div>
   </header>
 
-  <!-- MAIN AREA STREAMING CHUNK -->
   <main class="flex-grow flex items-center justify-center p-3 md:p-4 w-full max-w-3xl mx-auto">
     
     <!-- ================= NAME ENTRY GATEWAY ================= -->
@@ -50,7 +48,6 @@
         </p>
       </div>
 
-      <!-- Registration Fields -->
       <form id="name-form" onsubmit="saveUserIdentity(event)" class="space-y-3">
         <div class="grid grid-cols-2 gap-3">
           <div class="text-left space-y-1">
@@ -90,7 +87,6 @@
           SYSTEM_READY // GRADE_4_CORE
         </div>
         
-        <!-- Active User Status Panel -->
         <div class="bg-zinc-950/80 p-2.5 rounded border border-zinc-800 inline-flex flex-col sm:flex-row items-center justify-between gap-3 w-full max-w-md mx-auto">
           <div class="text-left font-mono text-[10px]">
             <span class="text-zinc-500 uppercase font-bold">OPERATOR:</span>
@@ -107,7 +103,6 @@
         </p>
       </div>
 
-      <!-- Mode Selector -->
       <div class="bg-zinc-950 p-4 rounded border border-zinc-800 max-w-md mx-auto space-y-2">
         <h3 class="industrial-font text-[10px] font-bold uppercase tracking-widest text-zinc-500">SELECT INTERFACE:</h3>
         <div class="grid grid-cols-2 gap-3">
@@ -140,7 +135,6 @@
     <!-- ================= GAMEPLAY SCREEN ================= -->
     <div id="gameplay-screen" class="hidden w-full flex flex-col space-y-3 relative max-w-xl">
       
-      <!-- Big Industrial Obvious Countdown Timer -->
       <div class="text-center">
         <div id="timer-display-container" class="inline-block bg-zinc-950 px-6 py-1.5 rounded border-2 border-zinc-800 min-w-[180px] shadow-[2px_2px_0px_0px_rgba(24,24,27,1)]">
           <div class="industrial-font text-[9px] uppercase tracking-widest text-zinc-500 font-bold">CYCLE_TIMER</div>
@@ -160,7 +154,6 @@
         </div>
       </div>
 
-      <!-- Question Box -->
       <div class="bg-zinc-900 rounded-lg p-4 md:p-6 border-2 border-zinc-800 text-center shadow-[4px_4px_0px_0px_rgba(24,24,27,1)] relative overflow-hidden min-h-[140px] flex flex-col justify-center items-center">
         <!-- Visual flash overlay inside the card container -->
         <div id="flash-overlay" class="absolute inset-0 pointer-events-none transition-all duration-150 opacity-0 z-10"></div>
@@ -207,7 +200,6 @@
         </button>
       </div>
 
-      <!-- ANSWERING METHOD: TYPING -->
       <div id="typing-container" class="hidden bg-zinc-900/60 border-2 border-zinc-800 p-4 rounded space-y-3 z-20 shadow-[2px_2px_0px_0px_rgba(24,24,27,1)]">
         <form id="typing-form" onsubmit="submitTyping(event)" class="flex gap-2">
           <input 
@@ -310,6 +302,11 @@
         </button>
       </div>
 
+      <!-- Sheet Synchronization Status Message -->
+      <div id="sheet-status" class="industrial-font text-[10px] text-zinc-500 uppercase tracking-widest py-1 min-h-[20px]">
+        SYS_STATUS // NO_SYNC_PENDING
+      </div>
+
     </div>
 
   </main>
@@ -322,7 +319,13 @@
   <!-- Retro Sound Effects & Interactive Logic Engine -->
   <script>
     /*************************************************************
-     * 0. DIFFICULTY CONFIGURATION VARIABLES
+     * 0.0 GOOGLE SHEETS DEPLOYMENT ENDPOINT
+     * Paste your Web App URL here after deploying the Apps Script
+     *************************************************************/
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw6Wb9XflSyXvLx8hOW0BA2BQEjmA0y1MOs4TWmY1VXHpOiQvvWoqGSBSJTkjkUQE4qBQ/exec";
+
+    /*************************************************************
+     * 0.1 DIFFICULTY CONFIGURATION VARIABLES
      * Adjust these ranges to control math challenges globally.
      *************************************************************/
     const MATH_CONFIG = {
@@ -350,9 +353,7 @@
       }
     };
 
- 
-
-/*************************************************************
+  /*************************************************************
  * CONFIGURABLE SPELLING WORD LIST (Add/Edit items here)
  * format:
  * correct: string (lowercase)
@@ -1268,9 +1269,6 @@ const spellingWords = [
   { correct: "tribute", misspellings: ["tributte", "tribbute", "tribbute"], hint: "Something done or given to show respect or gratitude." },
 ];
 
-
-
-
     /*************************************************************
      * 2. AUDIO SYNTHESIS ENGINE (Using Web Audio API)
      *************************************************************/
@@ -1296,21 +1294,21 @@ const spellingWords = [
         osc.start();
         osc.stop(audioCtx.currentTime + duration);
       } catch (e) {
-        // Fail silently if muted or restricted
+        // Fail silently
       }
     }
 
     function playCorrectSound() {
-      playTone(523.25, 'triangle', 0.1, 0.05); // C5
+      playTone(523.25, 'triangle', 0.1, 0.04); 
       setTimeout(() => {
-        playTone(659.25, 'triangle', 0.2, 0.05); // E5
+        playTone(659.25, 'triangle', 0.2, 0.04); 
       }, 70);
     }
 
     function playIncorrectSound() {
-      playTone(220, 'sawtooth', 0.15, 0.03); // A3
+      playTone(220, 'sawtooth', 0.15, 0.03); 
       setTimeout(() => {
-        playTone(165, 'sawtooth', 0.3, 0.03); // E3
+        playTone(165, 'sawtooth', 0.3, 0.03); 
       }, 80);
     }
 
@@ -1335,11 +1333,11 @@ const spellingWords = [
           synth.cancel();
         }
         const utterance = new SpeechSynthesisUtterance(textToSpeak);
-        utterance.rate = 0.80; // slightly slower for classroom clarity
+        utterance.rate = 0.80; 
         utterance.pitch = 1.0;
         synth.speak(utterance);
       } catch (e) {
-        console.error("Speech Synthesis failed or unsupported.", e);
+        console.error("Speech Synthesis unsupported/failed.", e);
       }
     }
 
@@ -1353,7 +1351,6 @@ const spellingWords = [
     let timerInterval = null;
     let currentQuestion = null;
     
-    // Performance Tracking
     let scoreTracker = {
       addition: { correct: 0, incorrect: 0 },
       subtraction: { correct: 0, incorrect: 0 },
@@ -1363,31 +1360,27 @@ const spellingWords = [
     };
 
     /*************************************************************
-     * 4. APP LIFE CYCLE & NAME ENTRY MANAGEMENT
+     * 4. INITIALIZATION & IDENTITY RECOGNITION
      *************************************************************/
     window.onload = function() {
-      // Force inputs uppercase visually and logically
-      const inputs = ['first-name-input', 'last-name-input', 'typing-input'];
-      inputs.forEach(id => {
-        const el = document.getElementById(id);
-        if (el) {
-          el.addEventListener('input', function() {
-            this.value = this.value.toUpperCase();
-          });
-        }
-      });
-
-      // Verify if operator identity already exists in localStorage
       checkUserIdentity();
+      
+      // Forced uppercase validation on input fields
+      document.getElementById('first-name-input').addEventListener('input', function(e) {
+        e.target.value = e.target.value.toUpperCase();
+      });
+      document.getElementById('last-name-input').addEventListener('input', function(e) {
+        e.target.value = e.target.value.toUpperCase();
+      });
     };
 
     function checkUserIdentity() {
-      const savedFirst = localStorage.getItem('speedrun_firstname');
-      const savedLast = localStorage.getItem('speedrun_lastname');
-      
+      const storedFirst = localStorage.getItem('speedrun_firstname');
+      const storedLast = localStorage.getItem('speedrun_lastname');
+
       hideAllScreens();
-      if (savedFirst && savedLast) {
-        document.getElementById('active-user-display').innerText = `${savedFirst} ${savedLast}`;
+      if (storedFirst && storedLast) {
+        document.getElementById('active-user-display').innerText = `${storedFirst} ${storedLast}`;
         document.getElementById('start-screen').classList.remove('hidden');
       } else {
         document.getElementById('name-screen').classList.remove('hidden');
@@ -1396,15 +1389,12 @@ const spellingWords = [
 
     function saveUserIdentity(event) {
       event.preventDefault();
-      initAudio();
-      
       const first = document.getElementById('first-name-input').value.trim().toUpperCase();
       const last = document.getElementById('last-name-input').value.trim().toUpperCase();
-      
+
       if (first && last) {
         localStorage.setItem('speedrun_firstname', first);
         localStorage.setItem('speedrun_lastname', last);
-        playTone(500, 'sine', 0.1, 0.05);
         checkUserIdentity();
       }
     }
@@ -1412,16 +1402,19 @@ const spellingWords = [
     function changeUser() {
       localStorage.removeItem('speedrun_firstname');
       localStorage.removeItem('speedrun_lastname');
-      document.getElementById('first-name-input').value = '';
-      document.getElementById('last-name-input').value = '';
+      document.getElementById('first-name-input').value = "";
+      document.getElementById('last-name-input').value = "";
       checkUserIdentity();
     }
 
+    /*************************************************************
+     * 5. GAME WORKFLOW CONTROLLERS
+     *************************************************************/
     function setMode(mode) {
       initAudio();
       gameMode = mode;
       document.querySelectorAll('.mode-btn').forEach(btn => {
-        btn.className = "mode-btn py-2 px-3 rounded border border-zinc-850 bg-transparent text-zinc-500 font-mono font-bold transition-all text-xs uppercase tracking-wider";
+        btn.className = "mode-btn py-2 px-3 rounded border border-zinc-800 bg-transparent text-zinc-500 font-mono font-bold transition-all text-xs uppercase tracking-wider";
       });
       if (mode === 'choice') {
         document.getElementById('mode-choice-btn').className = "mode-btn py-2 px-3 rounded border-2 border-amber-500 bg-amber-500/10 text-amber-500 font-mono font-bold transition-all text-xs uppercase tracking-wider";
@@ -1442,17 +1435,13 @@ const spellingWords = [
 
     function backToMenu() {
       hideAllScreens();
-      // Safe guard identity check
-      checkUserIdentity();
+      document.getElementById('start-screen').classList.remove('hidden');
     }
 
-    /*************************************************************
-     * 5. GAME WORKFLOW CONTROLLERS
-     *************************************************************/
     function startGame() {
       initAudio();
       
-      // Reset scores
+      // Reset score objects
       scoreTracker = {
         addition: { correct: 0, incorrect: 0 },
         subtraction: { correct: 0, incorrect: 0 },
@@ -1461,7 +1450,7 @@ const spellingWords = [
         spelling: { correct: 0, incorrect: 0 }
       };
 
-      // Randomize round order
+      // Randomize round sequence
       const sections = ['addition', 'subtraction', 'multiplication', 'division', 'spelling'];
       sectionsQueue = [];
       while (sections.length > 0) {
@@ -1480,26 +1469,26 @@ const spellingWords = [
       const currentSection = sectionsQueue[currentSectionIndex];
       const sectionFormatted = formatSectionName(currentSection);
       
-      document.getElementById('next-round-title').innerText = `UP NEXT: ${sectionFormatted.toUpperCase()}`;
-      document.getElementById('next-round-desc').innerText = "CALIBRATING MODULE...";
+      document.getElementById('next-round-title').innerText = `SYS_ROUND_0${currentSectionIndex + 1} // NEXT`;
+      document.getElementById('next-round-desc').innerText = `INITIALIZING: ${sectionFormatted}`;
       document.getElementById('transition-screen').classList.remove('hidden');
 
       let countdownVal = 3;
       const countdownEl = document.getElementById('transition-countdown');
       countdownEl.innerText = countdownVal;
-      playTone(300, 'sine', 0.1, 0.05);
+      playTone(300, 'sine', 0.08, 0.05);
 
       const countInterval = setInterval(() => {
         countdownVal--;
         if (countdownVal > 0) {
           countdownEl.innerText = countdownVal;
-          playTone(300, 'sine', 0.1, 0.05);
+          playTone(300, 'sine', 0.08, 0.05);
         } else {
           clearInterval(countInterval);
-          playTone(600, 'triangle', 0.2, 0.1);
+          playTone(600, 'triangle', 0.15, 0.08);
           startActiveRound(currentSection);
         }
-      }, 800);
+      }, 750);
     }
 
     function startActiveRound(section) {
@@ -1507,10 +1496,8 @@ const spellingWords = [
       document.getElementById('gameplay-screen').classList.remove('hidden');
       document.getElementById('game-stats-header').classList.remove('hidden');
 
-      // Update Header & Badge Info
       const badge = document.getElementById('current-section-badge');
-      badge.innerText = formatSectionName(section).toUpperCase();
-      badge.className = "px-2.5 py-0.5 bg-zinc-800 text-amber-500 font-mono text-[10px] border border-zinc-700 rounded";
+      badge.innerText = formatSectionName(section);
 
       document.getElementById('round-indicator').innerText = `${currentSectionIndex + 1}/5`;
       updateLiveScore();
@@ -1524,38 +1511,34 @@ const spellingWords = [
         document.getElementById('typing-container').classList.remove('hidden');
       }
 
-      // Configure helper visibility
       if (section === 'spelling') {
         document.getElementById('spelling-tts-helper').classList.remove('hidden');
       } else {
         document.getElementById('spelling-tts-helper').classList.add('hidden');
       }
 
-      // Start 1 minute timer with 100ms updates (tenths of a second)
+      // Initialize 100ms precise timer
       sectionTimer = 60.0;
       document.getElementById('timer-display').innerText = sectionTimer.toFixed(1);
       document.getElementById('time-bar').style.width = '100%';
 
-      // Track last whole integer to trigger audio clock ticks
       let lastWholeTick = 60;
 
       timerInterval = setInterval(() => {
         sectionTimer = Math.max(0, sectionTimer - 0.1);
         document.getElementById('timer-display').innerText = sectionTimer.toFixed(1);
         
-        // Progress bar percentage mapping
         const percentage = (sectionTimer / 60.0) * 100;
         document.getElementById('time-bar').style.width = `${percentage}%`;
 
-        // Warning colors for low time
+        // Pulse red on low time
         const timerContainer = document.getElementById('timer-display');
         if (sectionTimer <= 10.0) {
-          timerContainer.className = "industrial-font text-4xl md:text-5xl font-black text-rose-500 tabular-nums animate-pulse";
+          timerContainer.className = "industrial-font text-4xl md:text-5xl font-extrabold text-rose-500 tabular-nums animate-pulse";
         } else {
-          timerContainer.className = "industrial-font text-4xl md:text-5xl font-black text-amber-500 tabular-nums";
+          timerContainer.className = "industrial-font text-4xl md:text-5xl font-extrabold text-amber-500 tabular-nums";
         }
 
-        // Trigger discrete seconds tick audio under 5 seconds
         const currentWholeSecond = Math.ceil(sectionTimer);
         if (sectionTimer <= 5.0 && currentWholeSecond !== lastWholeTick && sectionTimer > 0) {
           playClockTick();
@@ -1588,141 +1571,113 @@ const spellingWords = [
         totalCorrect += scoreTracker[sec].correct;
         totalIncorrect += scoreTracker[sec].incorrect;
       });
-      // Correct responses minus incorrect
-      const netScore = totalCorrect - totalIncorrect;
-      document.getElementById('live-score-display').innerText = netScore;
+      document.getElementById('live-score-display').innerText = totalCorrect - totalIncorrect;
     }
 
     /*************************************************************
-     * 6. QUESTION GENERATION ENGINE (Using Math Config Block)
+     * 6. QUESTION GENERATION ENGINE
      *************************************************************/
     function generateNewQuestion(section) {
-      // Clear input values
       const typeInput = document.getElementById('typing-input');
       typeInput.value = '';
       if (gameMode === 'type') {
         setTimeout(() => typeInput.focus(), 50);
       }
 
-      let qLabel = 'COMPUTING_PULSE';
       let qText = '';
       let qHint = '';
       let correctAns = '';
       let wrongAnswers = [];
+      let labelText = "COMPUTING_PULSE";
 
       if (section === 'addition') {
-        qLabel = 'ADDITION_MODULE';
-        
-        // Dynamically compute via MATH_CONFIG
-        const diff = MATH_CONFIG.addition.maxVal - MATH_CONFIG.addition.minVal + 1;
-        const num1 = Math.floor(Math.random() * diff) + MATH_CONFIG.addition.minVal;
-        const num2 = Math.floor(Math.random() * diff) + MATH_CONFIG.addition.minVal;
+        const min = MATH_CONFIG.addition.minVal;
+        const max = MATH_CONFIG.addition.maxVal;
+        const num1 = Math.floor(Math.random() * (max - min + 1)) + min;
+        const num2 = Math.floor(Math.random() * (max - min + 1)) + min;
         
         correctAns = (num1 + num2).toString();
         qText = `${num1} + ${num2}`;
-        qHint = "SOLVE FOR SUM";
+        qHint = "Find the sum";
+        labelText = "MATH_ADD_CORE";
         
-        // Generate wrong answers
         const ansInt = parseInt(correctAns);
-        wrongAnswers = [
-          (ansInt + 2).toString(),
-          (ansInt - 2).toString(),
-          (ansInt + 10).toString(),
-          (ansInt - 1).toString()
-        ];
+        wrongAnswers = [(ansInt + 2).toString(), (ansInt - 2).toString(), (ansInt + 10).toString(), (ansInt - 1).toString()];
       } 
       
       else if (section === 'subtraction') {
-        qLabel = 'SUBTRACT_MODULE';
-        
-        // Dynamically compute via MATH_CONFIG
-        const diff = MATH_CONFIG.subtraction.maxVal - MATH_CONFIG.subtraction.minVal + 1;
-        const num1 = Math.floor(Math.random() * diff) + MATH_CONFIG.subtraction.minVal;
-        const num2 = Math.floor(Math.random() * (num1 - 2)) + 2; // Keep positive outcome
+        const min = MATH_CONFIG.subtraction.minVal;
+        const max = MATH_CONFIG.subtraction.maxVal;
+        const num1 = Math.floor(Math.random() * (max - min + 1)) + min;
+        const num2 = Math.floor(Math.random() * (num1 - min)) + min; // positive result
         
         correctAns = (num1 - num2).toString();
         qText = `${num1} - ${num2}`;
-        qHint = "SOLVE FOR DIFFERENCE";
+        qHint = "Find the difference";
+        labelText = "MATH_SUB_CORE";
         
         const ansInt = parseInt(correctAns);
-        wrongAnswers = [
-          (ansInt + 1).toString(),
-          (ansInt - 1).toString(),
-          (ansInt + 3).toString(),
-          (ansInt + 10).toString()
-        ];
+        wrongAnswers = [(ansInt + 1).toString(), (ansInt - 1).toString(), (ansInt + 3).toString(), (ansInt + 10).toString()];
       } 
       
       else if (section === 'multiplication') {
-        qLabel = 'MULTIPLY_MODULE';
-        
-        // Dynamically compute via MATH_CONFIG
-        const diff = MATH_CONFIG.multiplication.maxVal - MATH_CONFIG.multiplication.minVal + 1;
-        const num1 = Math.floor(Math.random() * diff) + MATH_CONFIG.multiplication.minVal;
-        const num2 = Math.floor(Math.random() * diff) + MATH_CONFIG.multiplication.minVal;
+        const min = MATH_CONFIG.multiplication.minVal;
+        const max = MATH_CONFIG.multiplication.maxVal;
+        const num1 = Math.floor(Math.random() * (max - min + 1)) + min;
+        const num2 = Math.floor(Math.random() * (max - min + 1)) + min;
         
         correctAns = (num1 * num2).toString();
         qText = `${num1} \u00d7 ${num2}`;
-        qHint = "SOLVE FOR PRODUCT";
+        qHint = "Multiply the factors";
+        labelText = "MATH_MULT_CORE";
         
         const ansInt = parseInt(correctAns);
-        wrongAnswers = [
-          (ansInt + num1).toString(),
-          (ansInt - num2).toString(),
-          (ansInt + 10).toString(),
-          (ansInt + 4).toString()
-        ];
+        wrongAnswers = [(ansInt + num1).toString(), (ansInt - num2).toString(), (ansInt + 10).toString(), (ansInt + 4).toString()];
       } 
       
       else if (section === 'division') {
-        qLabel = 'DIVIDE_MODULE';
-        
-        // Dynamically compute via MATH_CONFIG
-        const qDiff = MATH_CONFIG.division.maxQuotient - MATH_CONFIG.division.minQuotient + 1;
-        const dDiff = MATH_CONFIG.division.maxDivisor - MATH_CONFIG.division.minDivisor + 1;
-        
-        const num2 = Math.floor(Math.random() * dDiff) + MATH_CONFIG.division.minDivisor; // Divisor
-        const ansInt = Math.floor(Math.random() * qDiff) + MATH_CONFIG.division.minQuotient; // Quotient
-        const num1 = num2 * ansInt; // Dividend
-        
+        const minDiv = MATH_CONFIG.division.minDivisor;
+        const maxDiv = MATH_CONFIG.division.maxDivisor;
+        const minQ = MATH_CONFIG.division.minQuotient;
+        const maxQ = MATH_CONFIG.division.maxQuotient;
+
+        const num2 = Math.floor(Math.random() * (maxDiv - minDiv + 1)) + minDiv; 
+        const ansInt = Math.floor(Math.random() * (maxQ - minQ + 1)) + minQ; 
+        const num1 = num2 * ansInt; 
+
         correctAns = ansInt.toString();
         qText = `${num1} \u00f7 ${num2}`;
-        qHint = "SOLVE FOR QUOTIENT";
+        qHint = "Solve the quotient";
+        labelText = "MATH_DIV_CORE";
         
-        wrongAnswers = [
-          (ansInt + 1).toString(),
-          (ansInt - 1).toString(),
-          (ansInt + 2).toString(),
-          (ansInt + 5).toString()
-        ];
+        wrongAnswers = [(ansInt + 1).toString(), (ansInt - 1).toString(), (ansInt + 2).toString(), (ansInt + 5).toString()];
       } 
       
       else if (section === 'spelling') {
         const randomWordObj = spellingWords[Math.floor(Math.random() * spellingWords.length)];
         correctAns = randomWordObj.correct.toLowerCase();
+        labelText = "SPELL_VAL_ERR";
+        qHint = `Clue: ${randomWordObj.hint}`;
         
+        // Custom prompt depending on Choice vs Typing
         if (gameMode === 'choice') {
-          qLabel = 'SPELLING_SELECT';
           qText = "SELECT CORRECT WORD:";
-          qHint = `DEFINITION: "${randomWordObj.hint.toUpperCase()}"`;
-          wrongAnswers = randomWordObj.misspellings.map(w => w.toLowerCase());
+          labelText = "SPELL_MATCH_CORE";
         } else {
-          qLabel = 'FIX_SPELLING_ERROR';
-          // Displays a misspelled word to display on screen for student typing corrections
-          const misspellings = randomWordObj.misspellings;
-          const randomMisspelling = misspellings[Math.floor(Math.random() * misspellings.length)];
-          
-          qText = `${randomMisspelling.toLowerCase()}`;
-          qHint = `CORRECT THIS SPELLING. CLUE: "${randomWordObj.hint.toUpperCase()}"`;
-          wrongAnswers = randomWordObj.misspellings.map(w => w.toLowerCase());
+          // Show realistic misspelling for spelling correction in typing mode
+          const randomMisspelling = randomWordObj.misspellings[Math.floor(Math.random() * randomWordObj.misspellings.length)];
+          qText = randomMisspelling.toUpperCase();
+          labelText = "FIX SPELLING ERROR:";
         }
+        
+        wrongAnswers = randomWordObj.misspellings.map(w => w.toLowerCase());
       }
 
-      // Filter duplicates and prepare 4 choices
+      // Filter and clean choices
       wrongAnswers = [...new Set(wrongAnswers)].filter(ans => ans !== correctAns);
       while(wrongAnswers.length < 3) {
         if (section !== 'spelling') {
-          const val = (parseInt(correctAns) + Math.floor(Math.random() * 15) + 1).toString();
+          const val = (parseInt(correctAns) + Math.floor(Math.random() * 12) + 1).toString();
           if (!wrongAnswers.includes(val) && val !== correctAns) wrongAnswers.push(val);
         } else {
           wrongAnswers.push(correctAns + "s");
@@ -1742,12 +1697,12 @@ const spellingWords = [
         section: section
       };
 
-      // Set UI texts safely
-      document.getElementById('question-label').innerText = qLabel;
+      // Apply texts to card
+      document.getElementById('question-label').innerText = labelText;
       document.getElementById('question-text').innerText = qText;
       document.getElementById('question-hint').innerText = qHint;
 
-      // Populate choices if choice interface is active
+      // Render choice buttons
       if (gameMode === 'choice') {
         for (let i = 0; i < 4; i++) {
           const buttonContent = shuffledChoices[i];
@@ -1755,14 +1710,13 @@ const spellingWords = [
           
           btnTextSpan.innerText = buttonContent;
           if (section === 'spelling') {
-            btnTextSpan.className = "industrial-font text-base md:text-lg font-bold lowercase tracking-wide text-zinc-300";
+            btnTextSpan.className = "industrial-font text-base lowercase tracking-wider text-zinc-200";
           } else {
-            btnTextSpan.className = "industrial-font text-lg md:text-xl font-semibold tracking-tight text-zinc-300";
+            btnTextSpan.className = "industrial-font text-lg md:text-xl font-bold text-zinc-200";
           }
         }
       }
 
-      // Trigger automatic audio cue on spelling transition
       if (section === 'spelling') {
         setTimeout(() => speakWord(), 150);
       }
@@ -1792,11 +1746,11 @@ const spellingWords = [
 
       if (isCorrect) {
         scoreTracker[section].correct++;
-        playTone(523.25, 'triangle', 0.1, 0.05); // Play audio tone dynamically
+        playCorrectSound();
         showVisualFeedback('correct');
       } else {
         scoreTracker[section].incorrect++;
-        playTone(220, 'sawtooth', 0.15, 0.03); // Play error buzz dynamically
+        playIncorrectSound();
         showVisualFeedback('incorrect');
       }
 
@@ -1804,23 +1758,21 @@ const spellingWords = [
       generateNewQuestion(section);
     }
 
-    // Full-screen classroom silent visual flashes
     function showVisualFeedback(status) {
       const overlay = document.getElementById('flash-overlay');
       if (status === 'correct') {
-        overlay.className = "absolute inset-0 pointer-events-none bg-emerald-500/15 border-2 border-emerald-500/30 transition-all duration-75 opacity-100 rounded-lg";
+        overlay.className = "absolute inset-0 pointer-events-none bg-emerald-500/20 transition-all duration-75 opacity-100";
       } else {
-        overlay.className = "absolute inset-0 pointer-events-none bg-rose-500/20 border-2 border-rose-500/35 transition-all duration-75 opacity-100 rounded-lg";
+        overlay.className = "absolute inset-0 pointer-events-none bg-rose-500/30 transition-all duration-75 opacity-100";
       }
       
-      // Instantly clear visual flash cue to remain ultra-responsive
       setTimeout(() => {
-        overlay.className = "absolute inset-0 pointer-events-none transition-all duration-150 opacity-0 rounded-lg";
+        overlay.className = "absolute inset-0 pointer-events-none transition-all duration-150 opacity-0";
       }, 180);
     }
 
     /*************************************************************
-     * 8. END OF RUN REPORTS
+     * 8. END OF RUN REPORTS & GOOGLE SHEETS SYNC
      *************************************************************/
     function showEndScreen() {
       clearInterval(timerInterval);
@@ -1845,6 +1797,63 @@ const spellingWords = [
       // Show Net total score calculation: Correct minus Incorrect
       const finalNetScore = totalCorrect - totalIncorrect;
       document.getElementById('final-grand-total').innerText = finalNetScore;
+
+      // Automatically dispatch telemetry data to Google Sheets
+      sendDataToGoogleSheet(finalNetScore);
+    }
+
+    function sendDataToGoogleSheet(netScore) {
+      const statusEl = document.getElementById('sheet-status');
+      
+      if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL === "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL") {
+        statusEl.innerText = "SYS_STATUS // SYNC_BYPASSED (URL NOT SET)";
+        statusEl.className = "industrial-font text-[10px] text-zinc-500 uppercase tracking-widest py-1";
+        return;
+      }
+
+      // Format current timestamp
+      const today = new Date();
+      const formattedDate = `${today.getMonth() + 1}/${today.getDate()}/${today.getFullYear()}`;
+
+      // Assemble payload matching student headers precisely
+      const payload = {
+        Last: localStorage.getItem('speedrun_lastname') || 'UNKNOWN',
+        First: localStorage.getItem('speedrun_firstname') || 'UNKNOWN',
+        date: formattedDate,
+        mode: gameMode,
+        cum: netScore,
+        add: scoreTracker.addition.correct,
+        add_err: scoreTracker.addition.incorrect,
+        sub: scoreTracker.subtraction.correct,
+        sub_err: scoreTracker.subtraction.incorrect,
+        mult: scoreTracker.multiplication.correct,
+        mult_err: scoreTracker.multiplication.incorrect,
+        div: scoreTracker.division.correct,
+        div_err: scoreTracker.division.incorrect,
+        spell: scoreTracker.spelling.correct,
+        spell_err: scoreTracker.spelling.incorrect
+      };
+
+      statusEl.innerText = "SYS_STATUS // SYNCING_RECORDS_TO_SHEET...";
+      statusEl.className = "industrial-font text-[10px] text-amber-500 uppercase tracking-widest py-1 animate-pulse";
+
+      fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors', // Bypasses browser strict sandbox restrictions in classroom setups
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      })
+      .then(() => {
+        statusEl.innerText = "SYS_STATUS // RECORD_COMMITTED_SUCCESSFULLY ✓";
+        statusEl.className = "industrial-font text-[10px] text-emerald-500 uppercase tracking-widest py-1";
+      })
+      .catch((error) => {
+        console.error("Transmission loss:", error);
+        statusEl.innerText = "SYS_STATUS // PIPELINE_FAIL (CHECK INTERNET)";
+        statusEl.className = "industrial-font text-[10px] text-rose-500 uppercase tracking-widest py-1";
+      });
     }
 
     /*************************************************************
