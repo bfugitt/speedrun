@@ -23,7 +23,7 @@
   <header class="py-2 px-4 bg-zinc-900 border-b-2 border-zinc-800 flex justify-between items-center shrink-0">
     <div class="flex items-center space-x-2">
       <div class="w-3 h-3 bg-amber-500 rounded-sm animate-pulse"></div>
-      <h1 class="industrial-font font-bold text-sm md:text-base tracking-widest text-zinc-300">
+      <h1 class="industrial-font font-bold text-xs md:text-sm tracking-widest text-zinc-300">
         SPEED_RUN // SYS_4
       </h1>
     </div>
@@ -34,173 +34,188 @@
     </div>
   </header>
 
-  <main class="flex-grow flex items-center justify-center p-3 md:p-4 w-full max-w-3xl mx-auto">
+  <main class="flex-grow flex items-center justify-center p-2 md:p-3 w-full max-w-2xl mx-auto my-auto">
     
     <!-- ================= NAME ENTRY GATEWAY ================= -->
-    <div id="name-screen" class="hidden w-full max-w-md bg-zinc-900 rounded-lg p-5 border-2 border-zinc-800 text-center shadow-[4px_4px_0px_0px_rgba(24,24,27,1)] space-y-4">
+    <div id="name-screen" class="hidden w-full max-w-md bg-zinc-900 rounded-lg p-4 border-2 border-zinc-800 text-center shadow-[4px_4px_0px_0px_rgba(24,24,27,1)] space-y-3">
       <div class="space-y-1">
-        <div class="inline-block bg-amber-500/10 text-amber-500 text-[10px] font-mono uppercase font-bold px-2.5 py-0.5 rounded border border-amber-500/20 tracking-wider">
+        <div class="inline-block bg-amber-500/10 text-amber-500 text-[10px] font-mono uppercase font-bold px-2 py-0.5 rounded border border-amber-500/20 tracking-wider">
           USER_REGISTRATION // IDENTITY_GATE
         </div>
-        <h2 class="industrial-font text-xl md:text-2xl font-extrabold text-zinc-100 uppercase tracking-tight">IDENTITY REQUESTED</h2>
+        <h2 class="industrial-font text-lg md:text-xl font-extrabold text-zinc-100 uppercase tracking-tight">IDENTITY REQUESTED</h2>
         <p class="text-zinc-400 text-xs leading-relaxed">
-          Please enter your credentials below. All input is converted to capital format.
+          Please enter your student credentials. All input is converted to capital format.
         </p>
       </div>
 
       <form id="name-form" onsubmit="saveUserIdentity(event)" class="space-y-3">
-        <div class="grid grid-cols-2 gap-3">
+        <div class="grid grid-cols-2 gap-2.5">
           <div class="text-left space-y-1">
-            <label class="industrial-font text-[10px] uppercase font-bold tracking-widest text-zinc-500">FIRST_NAME</label>
+            <label class="industrial-font text-[9px] uppercase font-bold tracking-widest text-zinc-500">FIRST_NAME</label>
             <input 
               type="text" 
               id="first-name-input" 
               required
               placeholder="FIRST"
               autocomplete="off"
-              class="w-full bg-zinc-950 text-zinc-100 text-center text-sm font-bold font-mono rounded border border-zinc-800 py-2.5 uppercase focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500"
+              class="w-full bg-zinc-950 text-zinc-100 text-center text-sm font-bold font-mono rounded border border-zinc-800 py-2 uppercase focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500"
             />
           </div>
           <div class="text-left space-y-1">
-            <label class="industrial-font text-[10px] uppercase font-bold tracking-widest text-zinc-500">LAST_NAME</label>
+            <label class="industrial-font text-[9px] uppercase font-bold tracking-widest text-zinc-500">LAST_NAME</label>
             <input 
               type="text" 
               id="last-name-input" 
               required
               placeholder="LAST"
               autocomplete="off"
-              class="w-full bg-zinc-950 text-zinc-100 text-center text-sm font-bold font-mono rounded border border-zinc-800 py-2.5 uppercase focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500"
+              class="w-full bg-zinc-950 text-zinc-100 text-center text-sm font-bold font-mono rounded border border-zinc-800 py-2 uppercase focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500"
             />
           </div>
         </div>
 
-        <button type="submit" class="industrial-font w-full py-3 px-6 bg-amber-500 hover:bg-amber-400 text-zinc-950 text-sm font-bold rounded shadow-[2px_2px_0px_0px_rgba(217,119,6,1)] transition transform active:translate-y-0.5 active:translate-x-0.5">
+        <button type="submit" class="industrial-font w-full py-2.5 px-5 bg-amber-500 hover:bg-amber-400 text-zinc-950 text-xs font-bold rounded shadow-[2px_2px_0px_0px_rgba(217,119,6,1)] transition transform active:translate-y-0.5 active:translate-x-0.5">
           REGISTER_USER
         </button>
       </form>
     </div>
 
     <!-- ================= START SCREEN ================= -->
-    <div id="start-screen" class="hidden w-full bg-zinc-900 rounded-lg p-5 md:p-6 border-2 border-zinc-800 text-center shadow-[4px_4px_0px_0px_rgba(24,24,27,1)] space-y-4">
-      <div class="space-y-2">
-        <div class="inline-block bg-amber-500/10 text-amber-500 text-[10px] font-mono uppercase font-bold px-2.5 py-0.5 rounded border border-amber-500/20 tracking-wider">
+    <div id="start-screen" class="hidden w-full bg-zinc-900 rounded-lg p-4 md:p-5 border-2 border-zinc-800 text-center shadow-[4px_4px_0px_0px_rgba(24,24,27,1)] space-y-3">
+      <div class="space-y-1.5">
+        <div class="inline-block bg-amber-500/10 text-amber-500 text-[10px] font-mono uppercase font-bold px-2 py-0.5 rounded border border-amber-500/20 tracking-wider">
           SYSTEM_READY // GRADE_4_CORE
         </div>
         
-        <div class="bg-zinc-950/80 p-2.5 rounded border border-zinc-800 inline-flex flex-col sm:flex-row items-center justify-between gap-3 w-full max-w-md mx-auto">
+        <div class="bg-zinc-950/80 p-2 rounded border border-zinc-800 inline-flex flex-col sm:flex-row items-center justify-between gap-2 w-full max-w-md mx-auto">
           <div class="text-left font-mono text-[10px]">
             <span class="text-zinc-500 uppercase font-bold">OPERATOR:</span>
             <span id="active-user-display" class="text-amber-500 font-bold ml-1">UNREGISTERED</span>
           </div>
-          <button onclick="changeUser()" class="industrial-font text-[9px] bg-zinc-850 hover:bg-zinc-800 text-zinc-400 px-2 py-1 rounded border border-zinc-700 uppercase tracking-widest active:translate-y-0.5">
+          <button onclick="changeUser()" class="industrial-font text-[9px] bg-zinc-850 hover:bg-zinc-800 text-zinc-400 px-2 py-0.5 rounded border border-zinc-700 uppercase tracking-widest active:translate-y-0.5">
             [ Change Operator ]
           </button>
         </div>
 
-        <h2 class="industrial-font text-2xl md:text-3xl font-extrabold text-zinc-100 uppercase tracking-tight">READY_FOR_RUN?</h2>
-        <p class="text-zinc-400 text-xs max-w-md mx-auto leading-relaxed">
-          Five sequential 1-minute telemetry blocks: Addition, Subtraction, Multiplication, Division, and Spelling. Auto-advancing logic cycle.
+        <h2 class="industrial-font text-xl md:text-2xl font-extrabold text-zinc-100 uppercase tracking-tight">READY_FOR_RUN?</h2>
+        <p class="text-zinc-400 text-xs max-w-md mx-auto leading-normal">
+          Five 1-minute modules: Addition, Subtraction, Multiplication, Division, and Spelling.
         </p>
       </div>
 
-      <div class="bg-zinc-950 p-4 rounded border border-zinc-800 max-w-md mx-auto space-y-2">
-        <h3 class="industrial-font text-[10px] font-bold uppercase tracking-widest text-zinc-500">SELECT INTERFACE:</h3>
-        <div class="grid grid-cols-2 gap-3">
-          <button id="mode-choice-btn" onclick="setMode('choice')" class="mode-btn py-2 px-3 rounded border-2 border-amber-500 bg-amber-500/10 text-amber-500 font-mono font-bold transition-all text-xs uppercase tracking-wider">
+      <div class="bg-zinc-950 p-3 rounded border border-zinc-800 max-w-md mx-auto space-y-2">
+        <h3 class="industrial-font text-[9px] font-bold uppercase tracking-widest text-zinc-500">SELECT INTERFACE:</h3>
+        <div class="grid grid-cols-2 gap-2">
+          <button id="mode-choice-btn" onclick="setMode('choice')" class="mode-btn py-1.5 px-2 rounded border-2 border-amber-500 bg-amber-500/10 text-amber-500 font-mono font-bold transition-all text-xs uppercase tracking-wider">
             [x] Multiple Choice
           </button>
-          <button id="mode-type-btn" onclick="setMode('type')" class="mode-btn py-2 px-3 rounded border border-zinc-850 bg-transparent text-zinc-500 font-mono font-bold transition-all text-xs uppercase tracking-wider">
+          <button id="mode-type-btn" onclick="setMode('type')" class="mode-btn py-1.5 px-2 rounded border border-zinc-850 bg-transparent text-zinc-500 font-mono font-bold transition-all text-xs uppercase tracking-wider">
             [ ] Keyboard Input
           </button>
         </div>
       </div>
 
-      <!-- Start Button -->
       <div>
-        <button onclick="startGame()" class="industrial-font w-full max-w-md py-3 px-6 bg-amber-500 hover:bg-amber-400 text-zinc-950 text-base font-bold rounded shadow-[2px_2px_0px_0px_rgba(217,119,6,1)] transition transform active:translate-y-0.5 active:translate-x-0.5">
+        <button onclick="startGame()" class="industrial-font w-full max-w-md py-2.5 px-5 bg-amber-500 hover:bg-amber-400 text-zinc-950 text-sm font-bold rounded shadow-[2px_2px_0px_0px_rgba(217,119,6,1)] transition transform active:translate-y-0.5 active:translate-x-0.5">
           INITIALIZE SPEED RUN
         </button>
       </div>
     </div>
 
     <!-- ================= TRANSITION SCREEN ================= -->
-    <div id="transition-screen" class="hidden w-full max-w-md bg-zinc-900 rounded-lg p-6 border-2 border-zinc-800 text-center shadow-[4px_4px_0px_0px_rgba(24,24,27,1)] space-y-4">
-      <h2 id="next-round-title" class="industrial-font text-lg font-bold tracking-widest text-amber-500">SYS_STAGE // UP NEXT</h2>
+    <div id="transition-screen" class="hidden w-full max-w-md bg-zinc-900 rounded-lg p-5 border-2 border-zinc-800 text-center shadow-[4px_4px_0px_0px_rgba(24,24,27,1)] space-y-3">
+      <h2 id="next-round-title" class="industrial-font text-base font-bold tracking-widest text-amber-500">SYS_STAGE // UP NEXT</h2>
       <p id="next-round-desc" class="text-zinc-400 font-mono text-[10px] uppercase tracking-wider">Prepare system variables.</p>
-      <div class="industrial-font text-6xl font-bold text-zinc-100 tracking-wider transition-all duration-300" id="transition-countdown">
+      <div class="industrial-font text-5xl font-bold text-zinc-100 tracking-wider transition-all duration-300" id="transition-countdown">
         3
       </div>
     </div>
 
     <!-- ================= GAMEPLAY SCREEN ================= -->
-    <div id="gameplay-screen" class="hidden w-full flex flex-col space-y-3 relative max-w-xl">
+    <div id="gameplay-screen" class="hidden w-full flex flex-col space-y-2.5 relative max-w-xl">
       
+      <!-- Top Timer Display -->
       <div class="text-center">
-        <div id="timer-display-container" class="inline-block bg-zinc-950 px-6 py-1.5 rounded border-2 border-zinc-800 min-w-[180px] shadow-[2px_2px_0px_0px_rgba(24,24,27,1)]">
-          <div class="industrial-font text-[9px] uppercase tracking-widest text-zinc-500 font-bold">CYCLE_TIMER</div>
-          <div id="timer-display" class="industrial-font text-4xl md:text-5xl font-extrabold text-amber-500 tabular-nums">
+        <div id="timer-display-container" class="inline-block bg-zinc-950 px-5 py-1 rounded border-2 border-zinc-800 min-w-[160px] shadow-[2px_2px_0px_0px_rgba(24,24,27,1)]">
+          <div class="industrial-font text-[8px] uppercase tracking-widest text-zinc-500 font-bold">CYCLE_TIMER</div>
+          <div id="timer-display" class="industrial-font text-3xl md:text-4xl font-extrabold text-amber-500 tabular-nums">
             60.0
           </div>
         </div>
       </div>
 
       <!-- Current Status Bar -->
-      <div class="flex justify-between items-center bg-zinc-900 border border-zinc-800 px-3 py-1.5 rounded text-[11px] font-mono">
+      <div class="flex justify-between items-center bg-zinc-900 border border-zinc-800 px-3 py-1 rounded text-[10px] font-mono">
         <div class="text-zinc-400">
           STAGE: <span id="round-indicator" class="font-bold text-zinc-200">1/5</span>
         </div>
         <div class="text-zinc-400">
-          NET_ACCURACY: <span id="live-score-display" class="font-bold text-zinc-200">0</span>
+          NET_SCORE: <span id="live-score-display" class="font-bold text-amber-500">0</span>
         </div>
       </div>
 
-      <div class="bg-zinc-900 rounded-lg p-4 md:p-6 border-2 border-zinc-800 text-center shadow-[4px_4px_0px_0px_rgba(24,24,27,1)] relative overflow-hidden min-h-[140px] flex flex-col justify-center items-center">
-        <!-- Visual flash overlay inside the card container -->
+      <!-- Main Question Card -->
+      <div class="bg-zinc-900 rounded-lg p-3 md:p-4 border-2 border-zinc-800 text-center shadow-[4px_4px_0px_0px_rgba(24,24,27,1)] relative overflow-hidden min-h-[140px] flex flex-col justify-center items-center">
+        <!-- Visual flash overlay -->
         <div id="flash-overlay" class="absolute inset-0 pointer-events-none transition-all duration-150 opacity-0 z-10"></div>
 
         <!-- Progress bar inside question box -->
         <div class="absolute top-0 left-0 h-1 bg-amber-500 transition-all duration-100" id="time-bar" style="width: 100%;"></div>
+
+        <!-- COOL-DOWN LOCKOUT OVERLAY (ACTIVATES ON INCORRECT GUESS) -->
+        <div id="cooldown-overlay" class="hidden absolute inset-0 bg-zinc-950/95 z-30 flex flex-col items-center justify-center p-3 border-2 border-rose-500/80 animate-pulse">
+          <div class="industrial-font text-[10px] font-bold text-rose-500 uppercase tracking-widest mb-1 flex items-center gap-1">
+            <span>⚠ INPUT FREEZE PENALTY</span>
+          </div>
+          <div id="cooldown-correct-text" class="industrial-font text-base md:text-lg font-bold text-emerald-400 uppercase tracking-wide my-1">
+            CORRECT: 8 &times; 7 = 56
+          </div>
+          <div class="text-[10px] font-mono text-zinc-400 uppercase tracking-wider">
+            RESUMING IN: <span id="cooldown-seconds-text" class="text-rose-400 font-bold">1.5s</span>
+          </div>
+        </div>
         
         <!-- Audio helper for Spelling -->
-        <div id="spelling-tts-helper" class="hidden mb-2 flex items-center justify-center gap-2 z-20">
-          <button onclick="speakWord()" class="bg-zinc-800 hover:bg-zinc-700 active:translate-y-0.5 border border-zinc-700 text-zinc-300 font-mono px-3 py-1 rounded text-[10px] uppercase tracking-wider flex items-center gap-1 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition">
+        <div id="spelling-tts-helper" class="hidden mb-1 flex items-center justify-center gap-2 z-20">
+          <button onclick="speakWord()" class="bg-zinc-800 hover:bg-zinc-700 active:translate-y-0.5 border border-zinc-700 text-zinc-300 font-mono px-2.5 py-0.5 rounded text-[9px] uppercase tracking-wider flex items-center gap-1 transition">
             🔊 Speak Word
           </button>
         </div>
 
         <!-- Small, utility-sized instructions label -->
-        <div id="question-label" class="industrial-font text-[10px] uppercase tracking-widest text-amber-500 font-bold mb-1.5 z-20">
+        <div id="question-label" class="industrial-font text-[9px] uppercase tracking-widest text-amber-500 font-bold mb-1 z-20">
           COMPUTING_PULSE
         </div>
 
         <!-- Math prompts and core question text -->
-        <div id="question-text" class="industrial-font text-3xl md:text-5xl font-bold mb-2 select-text z-20 tracking-wider text-zinc-100">
+        <div id="question-text" class="industrial-font text-2xl md:text-4xl font-bold mb-1 select-text z-20 tracking-wider text-zinc-100">
           8 &times; 7
         </div>
 
         <!-- Enlarged, readable layout for hints/definitions -->
-        <div id="question-hint" class="text-zinc-200 font-mono text-xs md:text-sm max-w-md mx-auto uppercase tracking-wide select-text z-20 bg-zinc-950/40 px-2 py-1 rounded border border-zinc-800/50">
+        <div id="question-hint" class="text-zinc-200 font-mono text-xs md:text-sm max-w-md mx-auto uppercase tracking-wide select-text z-20 bg-zinc-950/50 px-2 py-0.5 rounded border border-zinc-800/80">
           <!-- Hint / definition text goes here -->
         </div>
       </div>
 
       <!-- ANSWERING METHOD: MULTIPLE CHOICE -->
-      <div id="multiple-choice-container" class="grid grid-cols-2 gap-3 z-20">
-        <button onclick="checkMultipleChoice(0)" class="choice-btn bg-zinc-900 border-2 border-zinc-800 hover:border-amber-500 hover:bg-zinc-800/20 active:translate-y-0.5 active:translate-x-0.5 transition-all duration-100 py-3.5 px-3 rounded text-lg md:text-xl font-bold flex justify-center items-center h-14 shadow-[2px_2px_0px_0px_rgba(24,24,27,1)]">
+      <div id="multiple-choice-container" class="grid grid-cols-2 gap-2 z-20">
+        <button onclick="checkMultipleChoice(0)" class="choice-btn bg-zinc-900 border-2 border-zinc-800 hover:border-amber-500 hover:bg-zinc-800/20 active:translate-y-0.5 transition-all duration-100 py-2.5 px-2 rounded text-base md:text-lg font-bold flex justify-center items-center h-12 shadow-[2px_2px_0px_0px_rgba(24,24,27,1)]">
           <span id="choice-0" class="industrial-font">12</span>
         </button>
-        <button onclick="checkMultipleChoice(1)" class="choice-btn bg-zinc-900 border-2 border-zinc-800 hover:border-amber-500 hover:bg-zinc-800/20 active:translate-y-0.5 active:translate-x-0.5 transition-all duration-100 py-3.5 px-3 rounded text-lg md:text-xl font-bold flex justify-center items-center h-14 shadow-[2px_2px_0px_0px_rgba(24,24,27,1)]">
+        <button onclick="checkMultipleChoice(1)" class="choice-btn bg-zinc-900 border-2 border-zinc-800 hover:border-amber-500 hover:bg-zinc-800/20 active:translate-y-0.5 transition-all duration-100 py-2.5 px-2 rounded text-base md:text-lg font-bold flex justify-center items-center h-12 shadow-[2px_2px_0px_0px_rgba(24,24,27,1)]">
           <span id="choice-1" class="industrial-font">56</span>
         </button>
-        <button onclick="checkMultipleChoice(2)" class="choice-btn bg-zinc-900 border-2 border-zinc-800 hover:border-amber-500 hover:bg-zinc-800/20 active:translate-y-0.5 active:translate-x-0.5 transition-all duration-100 py-3.5 px-3 rounded text-lg md:text-xl font-bold flex justify-center items-center h-14 shadow-[2px_2px_0px_0px_rgba(24,24,27,1)]">
+        <button onclick="checkMultipleChoice(2)" class="choice-btn bg-zinc-900 border-2 border-zinc-800 hover:border-amber-500 hover:bg-zinc-800/20 active:translate-y-0.5 transition-all duration-100 py-2.5 px-2 rounded text-base md:text-lg font-bold flex justify-center items-center h-12 shadow-[2px_2px_0px_0px_rgba(24,24,27,1)]">
           <span id="choice-2" class="industrial-font">15</span>
         </button>
-        <button onclick="checkMultipleChoice(3)" class="choice-btn bg-zinc-900 border-2 border-zinc-800 hover:border-amber-500 hover:bg-zinc-800/20 active:translate-y-0.5 active:translate-x-0.5 transition-all duration-100 py-3.5 px-3 rounded text-lg md:text-xl font-bold flex justify-center items-center h-14 shadow-[2px_2px_0px_0px_rgba(24,24,27,1)]">
+        <button onclick="checkMultipleChoice(3)" class="choice-btn bg-zinc-900 border-2 border-zinc-800 hover:border-amber-500 hover:bg-zinc-800/20 active:translate-y-0.5 transition-all duration-100 py-2.5 px-2 rounded text-base md:text-lg font-bold flex justify-center items-center h-12 shadow-[2px_2px_0px_0px_rgba(24,24,27,1)]">
           <span id="choice-3" class="industrial-font">42</span>
         </button>
       </div>
 
-      <div id="typing-container" class="hidden bg-zinc-900/60 border-2 border-zinc-800 p-4 rounded space-y-3 z-20 shadow-[2px_2px_0px_0px_rgba(24,24,27,1)]">
+      <!-- ANSWERING METHOD: TYPING INPUT -->
+      <div id="typing-container" class="hidden bg-zinc-900/60 border-2 border-zinc-800 p-2.5 rounded space-y-1.5 z-20 shadow-[2px_2px_0px_0px_rgba(24,24,27,1)]">
         <form id="typing-form" onsubmit="submitTyping(event)" class="flex gap-2">
           <input 
             type="text" 
@@ -210,16 +225,16 @@
             autocorrect="off" 
             autocapitalize="off" 
             spellcheck="false"
-            class="flex-grow bg-zinc-950 text-zinc-100 text-center text-xl font-bold font-mono rounded border border-zinc-800 px-4 py-2 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 placeholder-zinc-700 tracking-wider uppercase"
+            class="flex-grow bg-zinc-950 text-zinc-100 text-center text-lg font-bold font-mono rounded border border-zinc-800 px-3 py-1.5 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 placeholder-zinc-700 tracking-wider uppercase"
           />
           <button 
             type="submit" 
-            class="bg-amber-500 hover:bg-amber-400 text-zinc-950 font-mono font-bold text-sm px-6 py-2 rounded shadow-[1px_1px_0px_0px_rgba(217,119,6,1)] active:translate-y-0.5 transition-transform shrink-0"
+            class="bg-amber-500 hover:bg-amber-400 text-zinc-950 font-mono font-bold text-xs px-5 py-1.5 rounded shadow-[1px_1px_0px_0px_rgba(217,119,6,1)] active:translate-y-0.5 transition-transform shrink-0"
           >
             SUBMIT_
           </button>
         </form>
-        <div class="text-center font-mono text-[9px] text-zinc-500">
+        <div class="text-center font-mono text-[8px] text-zinc-500">
           PRESS [ENTER] KEY TO COMMIT VALUE TO SYS
         </div>
       </div>
@@ -227,83 +242,77 @@
     </div>
 
     <!-- ================= END GAME REPORT CARD SCREEN ================= -->
-    <div id="end-screen" class="hidden w-full bg-zinc-900 rounded-lg p-5 md:p-6 border-2 border-zinc-800 shadow-[4px_4px_0px_0px_rgba(24,24,27,1)] text-center space-y-4">
-      <div class="space-y-1">
-        <h2 class="industrial-font text-2xl md:text-3xl font-extrabold text-zinc-100 uppercase tracking-tight">RUN_COMPLETED</h2>
-        <p class="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">Diagnostic system data capture:</p>
+    <div id="end-screen" class="hidden w-full bg-zinc-900 rounded-lg p-4 md:p-5 border-2 border-zinc-800 shadow-[4px_4px_0px_0px_rgba(24,24,27,1)] text-center space-y-3">
+      <div class="space-y-0.5">
+        <h2 class="industrial-font text-xl md:text-2xl font-extrabold text-zinc-100 uppercase tracking-tight">RUN_COMPLETED</h2>
+        <p class="text-[9px] font-mono text-zinc-500 uppercase tracking-widest">Diagnostic telemetry capture:</p>
       </div>
 
-      <!-- Total Score (Correct minus Incorrect) -->
-      <div class="bg-zinc-950 border border-zinc-800 rounded p-3.5 max-w-xs mx-auto shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-        <div class="industrial-font text-[10px] font-bold tracking-widest text-zinc-500">NET_METRIC_SCORE</div>
-        <div class="industrial-font text-4xl font-extrabold text-amber-500 mt-0.5" id="final-grand-total">0</div>
-        <div class="text-[9px] font-mono text-zinc-500 mt-1 uppercase tracking-wider">Formula: correct values - incorrect values</div>
+      <!-- Total Score (Floored at 0 minimum) -->
+      <div class="bg-zinc-950 border border-zinc-800 rounded p-2.5 max-w-xs mx-auto shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+        <div class="industrial-font text-[9px] font-bold tracking-widest text-zinc-500">NET_METRIC_SCORE</div>
+        <div class="industrial-font text-3xl md:text-4xl font-extrabold text-amber-500 mt-0.5" id="final-grand-total">0</div>
+        <div class="text-[8px] font-mono text-zinc-500 mt-0.5 uppercase tracking-wider">Formula: correct - incorrect (min: 0)</div>
       </div>
 
       <!-- Section Scores Table -->
       <div class="w-full max-w-sm mx-auto bg-zinc-950 rounded overflow-hidden border border-zinc-800 divide-y divide-zinc-800/80 text-xs font-mono">
-        <!-- Header row -->
-        <div class="flex justify-between items-center p-2 px-4 text-zinc-500 uppercase tracking-wider font-bold text-[9px]">
+        <div class="flex justify-between items-center p-1.5 px-3 text-zinc-500 uppercase tracking-wider font-bold text-[8px]">
           <span>SYS_MODULE</span>
-          <div class="flex gap-6">
-            <span class="w-12 text-right">CORRECT</span>
-            <span class="w-12 text-right">ERROR</span>
+          <div class="flex gap-4">
+            <span class="w-10 text-right">CORRECT</span>
+            <span class="w-10 text-right">ERROR</span>
           </div>
         </div>
-        <!-- Addition -->
-        <div class="flex justify-between items-center p-2.5 px-4">
-          <span class="font-bold text-zinc-300 uppercase text-[11px]">ADDITION_MOD</span>
-          <div class="flex gap-6 font-semibold">
-            <span class="w-12 text-right text-emerald-500" id="report-addition-correct">0</span>
-            <span class="w-12 text-right text-rose-500" id="report-addition-incorrect">0</span>
+        <div class="flex justify-between items-center p-2 px-3">
+          <span class="font-bold text-zinc-300 uppercase text-[10px]">ADDITION_MOD</span>
+          <div class="flex gap-4 font-semibold text-[11px]">
+            <span class="w-10 text-right text-emerald-500" id="report-addition-correct">0</span>
+            <span class="w-10 text-right text-rose-500" id="report-addition-incorrect">0</span>
           </div>
         </div>
-        <!-- Subtraction -->
-        <div class="flex justify-between items-center p-2.5 px-4">
-          <span class="font-bold text-zinc-300 uppercase text-[11px]">SUBTRACT_MOD</span>
-          <div class="flex gap-6 font-semibold">
-            <span class="w-12 text-right text-emerald-500" id="report-subtraction-correct">0</span>
-            <span class="w-12 text-right text-rose-500" id="report-subtraction-incorrect">0</span>
+        <div class="flex justify-between items-center p-2 px-3">
+          <span class="font-bold text-zinc-300 uppercase text-[10px]">SUBTRACT_MOD</span>
+          <div class="flex gap-4 font-semibold text-[11px]">
+            <span class="w-10 text-right text-emerald-500" id="report-subtraction-correct">0</span>
+            <span class="w-10 text-right text-rose-500" id="report-subtraction-incorrect">0</span>
           </div>
         </div>
-        <!-- Multiplication -->
-        <div class="flex justify-between items-center p-2.5 px-4">
-          <span class="font-bold text-zinc-300 uppercase text-[11px]">MULTIPLY_MOD</span>
-          <div class="flex gap-6 font-semibold">
-            <span class="w-12 text-right text-emerald-500" id="report-multiplication-correct">0</span>
-            <span class="w-12 text-right text-rose-500" id="report-multiplication-incorrect">0</span>
+        <div class="flex justify-between items-center p-2 px-3">
+          <span class="font-bold text-zinc-300 uppercase text-[10px]">MULTIPLY_MOD</span>
+          <div class="flex gap-4 font-semibold text-[11px]">
+            <span class="w-10 text-right text-emerald-500" id="report-multiplication-correct">0</span>
+            <span class="w-10 text-right text-rose-500" id="report-multiplication-incorrect">0</span>
           </div>
         </div>
-        <!-- Division -->
-        <div class="flex justify-between items-center p-2.5 px-4">
-          <span class="font-bold text-zinc-300 uppercase text-[11px]">DIVIDE_MOD</span>
-          <div class="flex gap-6 font-semibold">
-            <span class="w-12 text-right text-emerald-500" id="report-division-correct">0</span>
-            <span class="w-12 text-right text-rose-500" id="report-division-incorrect">0</span>
+        <div class="flex justify-between items-center p-2 px-3">
+          <span class="font-bold text-zinc-300 uppercase text-[10px]">DIVIDE_MOD</span>
+          <div class="flex gap-4 font-semibold text-[11px]">
+            <span class="w-10 text-right text-emerald-500" id="report-division-correct">0</span>
+            <span class="w-10 text-right text-rose-500" id="report-division-incorrect">0</span>
           </div>
         </div>
-        <!-- Spelling -->
-        <div class="flex justify-between items-center p-2.5 px-4">
-          <span class="font-bold text-zinc-300 uppercase text-[11px]">SPELLING_MOD</span>
-          <div class="flex gap-6 font-semibold">
-            <span class="w-12 text-right text-emerald-500" id="report-spelling-correct">0</span>
-            <span class="w-12 text-right text-rose-500" id="report-spelling-incorrect">0</span>
+        <div class="flex justify-between items-center p-2 px-3">
+          <span class="font-bold text-zinc-300 uppercase text-[10px]">SPELLING_MOD</span>
+          <div class="flex gap-4 font-semibold text-[11px]">
+            <span class="w-10 text-right text-emerald-500" id="report-spelling-correct">0</span>
+            <span class="w-10 text-right text-rose-500" id="report-spelling-incorrect">0</span>
           </div>
         </div>
       </div>
 
       <!-- Action Buttons -->
       <div class="flex flex-col sm:flex-row gap-2 justify-center max-w-sm mx-auto font-mono text-xs">
-        <button onclick="startGame()" class="flex-grow py-2.5 px-4 bg-amber-500 hover:bg-amber-400 text-zinc-950 font-bold rounded transition shadow-[1px_1px_0px_0px_rgba(217,119,6,1)] active:translate-y-0.5">
+        <button onclick="startGame()" class="flex-grow py-2 px-3 bg-amber-500 hover:bg-amber-400 text-zinc-950 font-bold rounded transition shadow-[1px_1px_0px_0px_rgba(217,119,6,1)] active:translate-y-0.5">
           [ RESTART_RUN ]
         </button>
-        <button onclick="backToMenu()" class="flex-grow py-2.5 px-4 bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 font-bold rounded transition active:translate-y-0.5">
+        <button onclick="backToMenu()" class="flex-grow py-2 px-3 bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 font-bold rounded transition active:translate-y-0.5">
           [ SYS_MENU ]
         </button>
       </div>
 
       <!-- Sheet Synchronization Status Message -->
-      <div id="sheet-status" class="industrial-font text-[10px] text-zinc-500 uppercase tracking-widest py-1 min-h-[20px]">
+      <div id="sheet-status" class="industrial-font text-[9px] text-zinc-500 uppercase tracking-widest py-0.5 min-h-[18px]">
         SYS_STATUS // NO_SYNC_PENDING
       </div>
 
@@ -312,7 +321,7 @@
   </main>
 
   <!-- Footer Info -->
-  <footer class="p-2 text-center text-[9px] font-mono text-zinc-600 border-t border-zinc-800 bg-zinc-950 shrink-0">
+  <footer class="p-1.5 text-center text-[8px] font-mono text-zinc-600 border-t border-zinc-800 bg-zinc-950 shrink-0">
     DIAG_PORT: SYSTEM_OK // HARDWARE: IOS_CHROMEBOOK_STABLE
   </footer>
 
@@ -326,951 +335,37 @@
 
     /*************************************************************
      * 0.1 DIFFICULTY CONFIGURATION VARIABLES
-     * Adjust these ranges to control math challenges globally.
      *************************************************************/
     const MATH_CONFIG = {
-      // ADDITION (First + Second)
-      addition: {
-        minVal: 4,     // Default: 4
-        maxVal: 22     // Default: 22
-      },
-      // SUBTRACTION (First - Second)
-      subtraction: {
-        minVal: 10,    // Default: 10
-        maxVal: 35     // Default: 35
-      },
-      // MULTIPLICATION (First * Second)
-      multiplication: {
-        minVal: 2,     // Default: 2
-        maxVal: 12     // Default: 12
-      },
-      // DIVISION (First / Second)
-      division: {
-        minQuotient: 2, // Minimum Quotient (Answer) - Default: 2
-        maxQuotient: 11, // Maximum Quotient (Answer) - Default: 11
-        minDivisor: 2,  // Minimum Divisor - Default: 2
-        maxDivisor: 11  // Maximum Divisor - Default: 11
-      }
+      addition: { minVal: 4, maxVal: 22 },
+      subtraction: { minVal: 10, maxVal: 35 },
+      multiplication: { minVal: 2, maxVal: 12 },
+      division: { minQuotient: 2, maxQuotient: 11, minDivisor: 2, maxDivisor: 11 }
     };
 
-  /*************************************************************
- * CONFIGURABLE SPELLING WORD LIST (Add/Edit items here)
- * format:
- * correct: string (lowercase)
- * misspellings: array of 3 realistic spelling errors
- * hint: clues or definitions helper
- *************************************************************/
-const spellingWords = [
-
-  // ── SHORT VOWEL / CVC WORDS ──────────────────────────────
-  { correct: "flat", misspellings: ["falt", "flatt", "flet"], hint: "Smooth and level with no bumps; lying horizontally." },
-  { correct: "left", misspellings: ["left", "lef", "lefft"], hint: "The direction opposite of right; also past tense of leave." },
-  { correct: "cash", misspellings: ["cach", "casch", "cashe"], hint: "Paper money or coins used to buy things." },
-  { correct: "shelf", misspellings: ["shelf", "shelff", "shef"], hint: "A flat board on a wall or in a cabinet for holding things." },
-  { correct: "band", misspellings: ["baned", "bande", "baned"], hint: "A group of musicians, or a strip of material." },
-  { correct: "wealth", misspellings: ["welth", "weath", "wealht"], hint: "Having a lot of money or valuable things; richness." },
-  { correct: "bell", misspellings: ["bel", "belle", "beel"], hint: "A hollow metal object that makes a ringing sound." },
-  { correct: "grim", misspellings: ["grime", "grimm", "grem"], hint: "Looking very serious or harsh; not cheerful." },
-  { correct: "mill", misspellings: ["mil", "myll", "mille"], hint: "A building with machines for grinding grain into flour." },
-  { correct: "blot", misspellings: ["blott", "bloat", "blote"], hint: "A spot or stain of ink or liquid." },
-  { correct: "hint", misspellings: ["hent", "hintt", "hinte"], hint: "A small clue that helps you figure something out." },
-  { correct: "odd", misspellings: ["od", "odde", "oddd"], hint: "Strange or unusual; also a number not divisible by 2." },
-  { correct: "plot", misspellings: ["plott", "plote", "plott"], hint: "The main story of a book or movie; or a small piece of land." },
-  { correct: "sum", misspellings: ["somme", "summ", "som"], hint: "The answer you get when you add numbers together." },
-  { correct: "dock", misspellings: ["dok", "docke", "doke"], hint: "A platform at the water's edge where boats are tied up." },
-  { correct: "plum", misspellings: ["plumb", "plumm", "plome"], hint: "A small, sweet, purple or red fruit with a pit inside." },
-  { correct: "bluff", misspellings: ["bluf", "bluffe", "bluf"], hint: "To trick someone by pretending; or a steep cliff by water." },
-  { correct: "crunch", misspellings: ["cruch", "crunche", "crnch"], hint: "A loud crushing sound, like biting a crispy chip." },
-  { correct: "build", misspellings: ["bild", "buld", "buildd"], hint: "To put materials together to make something." },
-  { correct: "gym", misspellings: ["jim", "gymm", "gim"], hint: "A room or building with equipment for exercising." },
-
-  // ── LONG-A WORDS ─────────────────────────────────────────
-  { correct: "major", misspellings: ["majer", "majur", "majore"], hint: "Very important or large in size." },
-  { correct: "clay", misspellings: ["claye", "cley", "clai"], hint: "A sticky, soft earth used for making pots and sculpture." },
-  { correct: "stray", misspellings: ["strey", "strai", "straye"], hint: "To wander away from where you should be." },
-  { correct: "today", misspellings: ["todat", "todaye", "tody"], hint: "This current day; not yesterday or tomorrow." },
-  { correct: "bail", misspellings: ["bale", "baile", "bial"], hint: "To scoop water out of a boat; or money paid for release." },
-  { correct: "rail", misspellings: ["rale", "raile", "reil"], hint: "A bar or fence used as a guard or for trains to roll on." },
-  { correct: "pale", misspellings: ["pail", "pael", "paile"], hint: "Light in color; not bright or strong." },
-  { correct: "drain", misspellings: ["drane", "drean", "drein"], hint: "To let liquid flow away; the opening water flows through." },
-  { correct: "face", misspellings: ["fase", "fece", "faice"], hint: "The front of your head with your eyes, nose, and mouth." },
-  { correct: "faint", misspellings: ["feint", "fante", "faent"], hint: "Very faint or weak; or to briefly lose consciousness." },
-  { correct: "graze", misspellings: ["graise", "graze", "graize"], hint: "To eat grass in a field; or to lightly scrape your skin." },
-  { correct: "claim", misspellings: ["claime", "clame", "cliam"], hint: "To say something belongs to you or that something is true." },
-  { correct: "cane", misspellings: ["cain", "kane", "caine"], hint: "A long thin stick used for walking, or a sugar plant." },
-  { correct: "slate", misspellings: ["slait", "slaite", "slat"], hint: "A dark gray rock; a list of candidates in an election." },
-  { correct: "eight", misspellings: ["eigt", "eigth", "eit"], hint: "The number after seven; 8." },
-  { correct: "ache", misspellings: ["ake", "aich", "ach"], hint: "A dull, steady pain somewhere in your body." },
-  { correct: "they", misspellings: ["thay", "thei", "thet"], hint: "A word referring to more than one person or thing." },
-  { correct: "steak", misspellings: ["stake", "steke", "staek"], hint: "A thick, flat piece of beef cooked for a meal." },
-  { correct: "obey", misspellings: ["obay", "obbey", "obei"], hint: "To follow rules or do what someone tells you to do." },
-  { correct: "break", misspellings: ["braek", "breake", "brak"], hint: "To split something into pieces; also a short rest from work." },
-
-  // ── LONG-E WORDS ─────────────────────────────────────────
-  { correct: "evening", misspellings: ["evning", "evenning", "eveing"], hint: "The part of the day just after the afternoon and before night." },
-  { correct: "zebra", misspellings: ["zeabra", "zebera", "zeebra"], hint: "A large African animal with black and white stripes." },
-  { correct: "breathe", misspellings: ["breth", "breathe", "breeth"], hint: "To pull air in and out of your lungs." },
-  { correct: "league", misspellings: ["leage", "leauge", "legue"], hint: "A group of sports teams that compete against each other." },
-  { correct: "squeaky", misspellings: ["sqeaky", "squeakey", "squeeki"], hint: "Making a high-pitched, sharp sound like a mouse." },
-  { correct: "healer", misspellings: ["heeler", "healor", "heler"], hint: "A person or thing that helps someone recover from illness." },
-  { correct: "sleek", misspellings: ["sleak", "sleeck", "sleik"], hint: "Smooth and shiny; very stylish and modern-looking." },
-  { correct: "indeed", misspellings: ["indede", "indead", "ineed"], hint: "Used to stress that something is true or to agree." },
-  { correct: "reef", misspellings: ["reaf", "reefe", "reef"], hint: "A ridge of rock or coral just below the surface of the sea." },
-  { correct: "concrete", misspellings: ["concret", "concreet", "concreete"], hint: "A hard building material made from cement, sand, and water." },
-  { correct: "deed", misspellings: ["dede", "deede", "deed"], hint: "Something that is done; an action or act." },
-  { correct: "scheme", misspellings: ["skeme", "scheem", "sceme"], hint: "A plan, sometimes a sneaky or clever one." },
-  { correct: "speech", misspellings: ["speach", "speecht", "speche"], hint: "Talking aloud; a formal talk given to an audience." },
-  { correct: "belief", misspellings: ["beleif", "belefe", "beleaf"], hint: "Something you think is true even without proof." },
-  { correct: "wheeze", misspellings: ["weeze", "wheese", "weze"], hint: "To breathe with a whistling sound, often from illness." },
-  { correct: "chief", misspellings: ["cheif", "cheef", "chefe"], hint: "The leader of a group or tribe; the most important one." },
-  { correct: "honey", misspellings: ["hunny", "hony", "hunney"], hint: "A sweet, sticky substance made by bees." },
-  { correct: "donkey", misspellings: ["donky", "donkie", "donckey"], hint: "A gray or brown animal like a small horse with long ears." },
-  { correct: "family", misspellings: ["famly", "familly", "famley"], hint: "A group of people who are related to each other." },
-  { correct: "weary", misspellings: ["weiry", "wery", "weery"], hint: "Very tired, especially from long effort." },
-
-  // ── LONG-I WORDS ─────────────────────────────────────────
-  { correct: "climb", misspellings: ["clime", "climed", "clumb"], hint: "To go up something using your hands and feet." },
-  { correct: "height", misspellings: ["hieght", "hight", "heigth"], hint: "How tall something is; the distance from bottom to top." },
-  { correct: "minding", misspellings: ["minding", "mindig", "mindding"], hint: "Paying attention to; taking care of something or someone." },
-  { correct: "sigh", misspellings: ["sie", "sigh", "sigh"], hint: "A long, deep breath you make when you're tired or sad." },
-  { correct: "pies", misspellings: ["pyes", "piez", "pie's"], hint: "Baked desserts or meals with a crust on the outside." },
-  { correct: "fright", misspellings: ["frite", "frieght", "friht"], hint: "A sudden feeling of fear or being scared." },
-  { correct: "die", misspellings: ["dye", "di", "digh"], hint: "To stop living; or a small cube with dots used in games." },
-  { correct: "slight", misspellings: ["slite", "slieght", "sligh"], hint: "Very small in amount; hardly noticeable." },
-  { correct: "drive", misspellings: ["dribe", "driev", "drve"], hint: "To control and steer a vehicle; a road or strong motivation." },
-  { correct: "pride", misspellings: ["pryde", "priede", "prde"], hint: "A feeling of deep satisfaction about your achievements." },
-  { correct: "pry", misspellings: ["prie", "pri", "prye"], hint: "To look too closely into someone's private business." },
-  { correct: "slice", misspellings: ["slise", "slyce", "slise"], hint: "A thin, flat piece cut from something larger." },
-  { correct: "sly", misspellings: ["slie", "slye", "sligh"], hint: "Clever in a sneaky, tricky way." },
-  { correct: "kite", misspellings: ["kight", "kyte", "kiet"], hint: "A light frame covered with paper or cloth that flies in the wind." },
-  { correct: "twice", misspellings: ["twise", "twyce", "tice"], hint: "Two times; happening once and then once more." },
-  { correct: "shy", misspellings: ["shie", "shye", "shigh"], hint: "Nervous or timid around other people." },
-  { correct: "prime", misspellings: ["pryme", "priem", "prme"], hint: "The best, most important, or earliest stage of something." },
-  { correct: "wipe", misspellings: ["wype", "wyep", "wip"], hint: "To rub a surface with cloth to clean or dry it." },
-  { correct: "spy", misspellings: ["spie", "spye", "spigh"], hint: "Someone who secretly watches or collects information." },
-
-  // ── LONG-O WORDS ─────────────────────────────────────────
-  { correct: "bolt", misspellings: ["bolte", "boalt", "bault"], hint: "A metal fastener; or a flash of lightning; to run away fast." },
-  { correct: "flow", misspellings: ["flowe", "flo", "floa"], hint: "To move steadily and continuously like water in a stream." },
-  { correct: "mold", misspellings: ["molde", "moald", "molld"], hint: "A fuzzy growth on old food; or a shaped container for casting." },
-  { correct: "mows", misspellings: ["mowes", "moez", "mowse"], hint: "Cuts the grass with a lawn mower (he mows the lawn)." },
-  { correct: "toll", misspellings: ["tole", "tol", "tolle"], hint: "A fee paid to use a road or bridge; or the ringing of a bell." },
-  { correct: "lower", misspellings: ["lowr", "loer", "lowwer"], hint: "To move something down; less high than something else." },
-  { correct: "shadow", misspellings: ["shadoe", "shadwo", "shaddow"], hint: "A dark shape made when something blocks the light." },
-  { correct: "blown", misspellings: ["blone", "bloun", "blowen"], hint: "Moved or carried by the wind (the leaves were blown away)." },
-  { correct: "quote", misspellings: ["quoat", "qote", "quoate"], hint: "To repeat someone's exact words; a passage from a text." },
-  { correct: "mole", misspellings: ["moel", "moale", "moll"], hint: "A small furry animal that digs underground; or a dark skin spot." },
-  { correct: "stone", misspellings: ["ston", "stoone", "stoan"], hint: "A small piece of rock; very hard like a rock." },
-  { correct: "stove", misspellings: ["stoave", "stov", "stoove"], hint: "A kitchen appliance used for cooking food with heat." },
-  { correct: "chose", misspellings: ["chooze", "choes", "choise"], hint: "Past tense of choose; made a selection or decision." },
-  { correct: "groan", misspellings: ["grone", "groen", "groun"], hint: "A low, deep sound made when you're hurt or annoyed." },
-  { correct: "sole", misspellings: ["soal", "soale", "sol"], hint: "The only one; also the bottom of a shoe." },
-  { correct: "load", misspellings: ["lode", "loed", "loade"], hint: "Something heavy being carried; to put items onto a vehicle." },
-  { correct: "stole", misspellings: ["stoal", "stoel", "stoole"], hint: "Past tense of steal; took something without permission." },
-  { correct: "roasting", misspellings: ["rossting", "rosting", "roosting"], hint: "Cooking something in an oven with dry heat." },
-  { correct: "goal", misspellings: ["goale", "gole", "goeal"], hint: "Something you aim to achieve; a point scored in a sport." },
-  { correct: "woe", misspellings: ["wo", "woah", "woe"], hint: "Great sadness or trouble." },
-
-  // ── PREFIX WORDS ─────────────────────────────────────────
-  { correct: "unblock", misspellings: ["unbloc", "unblokk", "unbloak"], hint: "To remove something that was blocking the way." },
-  { correct: "unborn", misspellings: ["unboren", "unboarn", "unborn"], hint: "Not yet born; still inside the mother." },
-  { correct: "unchain", misspellings: ["unchane", "unchaen", "unchaine"], hint: "To remove chains; to set free." },
-  { correct: "unload", misspellings: ["unlode", "unloade", "unlood"], hint: "To take things off or out of a vehicle or container." },
-  { correct: "unlock", misspellings: ["unlok", "unlocke", "unnlock"], hint: "To open a lock so something can be opened." },
-  { correct: "recall", misspellings: ["recal", "recalle", "racall"], hint: "To remember something; or to call something back." },
-  { correct: "relearn", misspellings: ["releern", "relaern", "relearne"], hint: "To learn something again that was forgotten." },
-  { correct: "resell", misspellings: ["resel", "reselle", "rasell"], hint: "To sell something again after you have bought it." },
-  { correct: "rewash", misspellings: ["rewashe", "rewosh", "rewach"], hint: "To wash something a second time." },
-  { correct: "rewind", misspellings: ["rewined", "rewynd", "rewinnd"], hint: "To go back to the beginning of a video, tape, or audio." },
-  { correct: "imperfect", misspellings: ["imperfict", "imperfact", "imperect"], hint: "Not perfect; having flaws or mistakes." },
-  { correct: "indirect", misspellings: ["inderect", "indirekt", "indirec"], hint: "Not going in a straight line; not done in a direct way." },
-  { correct: "incorrect", misspellings: ["incorect", "inncorrect", "incorrct"], hint: "Not correct; wrong or mistaken." },
-  { correct: "illegal", misspellings: ["ilegall", "illegale", "illegel"], hint: "Against the law; not allowed by the rules." },
-  { correct: "overact", misspellings: ["overacte", "overract", "overakt"], hint: "To act in an exaggerated, dramatic way." },
-  { correct: "overheat", misspellings: ["overhete", "overheet", "overheatt"], hint: "To become too hot; to heat something too much." },
-  { correct: "subway", misspellings: ["subwaye", "subwai", "subwy"], hint: "An underground train system in a city." },
-  { correct: "premix", misspellings: ["premiks", "premixe", "praemix"], hint: "To mix ingredients together ahead of time." },
-  { correct: "preplan", misspellings: ["pre-plan", "preplane", "preplann"], hint: "To plan something in advance before it happens." },
-  { correct: "supersize", misspellings: ["supersise", "supersize", "supersyz"], hint: "To make something extra large, especially a food serving." },
-
-  // ── DIGRAPHS & BLENDS ────────────────────────────────────
-  { correct: "thirty", misspellings: ["thurty", "thirtey", "thirdy"], hint: "The number 30; three groups of ten." },
-  { correct: "width", misspellings: ["wideth", "widht", "with"], hint: "How wide something is; the measurement from side to side." },
-  { correct: "northern", misspellings: ["northren", "northurn", "nothern"], hint: "In or toward the north direction." },
-  { correct: "fifth", misspellings: ["fith", "fifthe", "fift"], hint: "Coming in position number 5; after fourth." },
-  { correct: "choose", misspellings: ["chose", "chooze", "chosse"], hint: "To pick one thing from several options." },
-  { correct: "touch", misspellings: ["tuch", "tounch", "touche"], hint: "To put your hand on something; the sense that feels things." },
-  { correct: "chef", misspellings: ["cheff", "shef", "chefe"], hint: "A professional cook who leads a kitchen." },
-  { correct: "chance", misspellings: ["chanse", "chanse", "chanc"], hint: "An opportunity; the possibility that something will happen." },
-  { correct: "pitcher", misspellings: ["picher", "pitchur", "picther"], hint: "A container for pouring liquids; the player who throws the ball." },
-  { correct: "kitchen", misspellings: ["kitchin", "kichen", "kitchun"], hint: "The room in a house where meals are cooked." },
-  { correct: "sketched", misspellings: ["sketcht", "skeched", "sketced"], hint: "Drew a quick, rough picture of something." },
-  { correct: "ketchup", misspellings: ["katsup", "kechup", "ketchupp"], hint: "A thick red sauce made from tomatoes, used on food." },
-  { correct: "snatch", misspellings: ["snaatch", "snach", "snatch"], hint: "To grab something quickly and suddenly." },
-  { correct: "stretching", misspellings: ["streching", "strecting", "strecthing"], hint: "Pulling something or a body part to make it longer." },
-  { correct: "rush", misspellings: ["rushe", "ruch", "rusch"], hint: "To move or do something very quickly; a hurry." },
-  { correct: "whine", misspellings: ["wine", "whyne", "whin"], hint: "To complain in a high, annoying voice." },
-  { correct: "whirl", misspellings: ["wirl", "whirle", "whurl"], hint: "To spin around very quickly." },
-  { correct: "bring", misspellings: ["breng", "brig", "bringe"], hint: "To carry something to a place or person." },
-  { correct: "graph", misspellings: ["grap", "graff", "graffe"], hint: "A chart or diagram showing information with lines or bars." },
-  { correct: "photo", misspellings: ["fotto", "photoe", "photto"], hint: "A picture taken with a camera." },
-
-  // ── CONSONANT CLUSTERS ───────────────────────────────────
-  { correct: "shred", misspellings: ["shread", "shrid", "shredde"], hint: "To tear something into thin strips." },
-  { correct: "shriek", misspellings: ["shreek", "shriek", "shreik"], hint: "A loud, high-pitched scream or cry." },
-  { correct: "shrimp", misspellings: ["shrimpe", "shrimp", "shrimpp"], hint: "A small seafood creature with a curved body and tail." },
-  { correct: "shrink", misspellings: ["shrink", "shrunk", "shrenk"], hint: "To become smaller; to pull back in fear." },
-  { correct: "script", misspellings: ["scrpt", "scrypt", "scripit"], hint: "The written text of a play, movie, or speech." },
-  { correct: "screw", misspellings: ["scrue", "skrew", "scrwe"], hint: "A metal fastener with a spiral thread; to twist tight." },
-  { correct: "screech", misspellings: ["screatch", "screache", "screche"], hint: "A harsh, high-pitched sound like tires or a bird." },
-  { correct: "straighten", misspellings: ["straigten", "straiten", "straightin"], hint: "To make something flat or upright; to tidy up." },
-  { correct: "straps", misspellings: ["strapes", "strapps", "staps"], hint: "Narrow strips of material used to fasten or hold things." },
-  { correct: "strand", misspellings: ["strend", "strande", "srand"], hint: "A thin thread or strip; to be left helpless and stuck." },
-  { correct: "sprout", misspellings: ["sproute", "sproat", "sprut"], hint: "To begin to grow; a tiny new plant just coming up." },
-  { correct: "sprawl", misspellings: ["sprawle", "sprall", "spraul"], hint: "To spread out loosely over a large area." },
-  { correct: "sprang", misspellings: ["sprangg", "sprung", "sprang"], hint: "Past tense of spring; jumped suddenly." },
-  { correct: "splashing", misspellings: ["splaching", "splacing", "splashhing"], hint: "Causing water to fly around noisily." },
-  { correct: "splotch", misspellings: ["splotche", "sploch", "spltoch"], hint: "A messy irregular spot or stain." },
-  { correct: "thrill", misspellings: ["thril", "thrill", "thrille"], hint: "A feeling of great excitement or adventure." },
-  { correct: "throb", misspellings: ["throbe", "throbb", "throb"], hint: "To beat or pulse with a strong, steady rhythm." },
-  { correct: "throat", misspellings: ["throate", "throte", "throught"], hint: "The passage inside your neck for swallowing and breathing." },
-  { correct: "thrift", misspellings: ["thrft", "thifft", "thrith"], hint: "Being careful with money; not wasteful." },
-  { correct: "through", misspellings: ["thrugh", "threw", "throug"], hint: "Moving from one side or end to the other." },
-
-  // ── R-CONTROLLED VOWELS ──────────────────────────────────
-  { correct: "dart", misspellings: ["darte", "dairt", "dort"], hint: "To move suddenly and quickly; a small pointed object thrown at a target." },
-  { correct: "guard", misspellings: ["gard", "guerd", "guarrd"], hint: "To protect or watch over someone or something." },
-  { correct: "award", misspellings: ["awerd", "awarrd", "awared"], hint: "A prize or honor given for doing something well." },
-  { correct: "backyard", misspellings: ["backyerd", "backard", "backyarde"], hint: "The outdoor area behind a house." },
-  { correct: "argue", misspellings: ["aruge", "argew", "arguee"], hint: "To disagree and express opposing views strongly." },
-  { correct: "spark", misspellings: ["sparck", "sperk", "sparke"], hint: "A tiny piece of burning material; to start or inspire something." },
-  { correct: "target", misspellings: ["tarjit", "targit", "taget"], hint: "Something you aim at; a goal you are working toward." },
-  { correct: "smart", misspellings: ["smert", "smat", "smarte"], hint: "Intelligent and quick to learn; or a sharp pain." },
-  { correct: "charge", misspellings: ["charg", "charj", "charege"], hint: "To rush forward; to ask a price; to put electricity into." },
-  { correct: "fort", misspellings: ["forte", "fourt", "frot"], hint: "A strong building made to defend against attacks." },
-  { correct: "worn", misspellings: ["woren", "wourn", "wurn"], hint: "Damaged from use over time; past tense of wear." },
-  { correct: "carpet", misspellings: ["carpit", "carpette", "carpat"], hint: "A thick, soft covering on floors." },
-  { correct: "morning", misspellings: ["morining", "moring", "mourning"], hint: "The early part of the day, from sunrise until noon." },
-  { correct: "stormy", misspellings: ["stormey", "stormi", "stormey"], hint: "Having rough weather with wind, rain, or thunder." },
-  { correct: "warp", misspellings: ["warrp", "worp", "warpe"], hint: "To bend or twist out of shape." },
-  { correct: "stork", misspellings: ["storke", "stoke", "staurk"], hint: "A large bird with long legs and a long beak." },
-  { correct: "core", misspellings: ["coar", "cor", "cour"], hint: "The center or most important part of something." },
-  { correct: "door", misspellings: ["dore", "doore", "dour"], hint: "A hinged barrier used to open and close an entrance." },
-  { correct: "cord", misspellings: ["corde", "cord", "coard"], hint: "A thin rope or wire; a thick string." },
-  { correct: "bore", misspellings: ["boar", "boure", "bor"], hint: "To make someone feel bored; to drill a hole." },
-
-  // ── SUFFIXES ─────────────────────────────────────────────
-  { correct: "sickly", misspellings: ["sickley", "sickli", "sicklie"], hint: "Often ill or unhealthy looking." },
-  { correct: "hardly", misspellings: ["hardley", "hardli", "harly"], hint: "Almost not at all; with great difficulty." },
-  { correct: "quickly", misspellings: ["quickley", "quickli", "quikly"], hint: "In a fast or speedy manner." },
-  { correct: "slowly", misspellings: ["slowley", "slowli", "sloley"], hint: "Not fast; at a low speed." },
-  { correct: "carefully", misspellings: ["carfully", "carefully", "carefuly"], hint: "Giving attention to avoiding mistakes or danger." },
-  { correct: "wonderful", misspellings: ["wonderfull", "wonderfal", "wondeful"], hint: "Amazing, excellent, or inspiring wonder." },
-  { correct: "beautiful", misspellings: ["beautifull", "beautful", "beutiful"], hint: "Very pretty or pleasing to look at." },
-  { correct: "graceful", misspellings: ["gracefull", "gracefall", "gracful"], hint: "Moving in a smooth, elegant way." },
-  { correct: "spoonful", misspellings: ["spoonfull", "spoonfall", "spoonfl"], hint: "The amount a spoon can hold." },
-  { correct: "darkness", misspellings: ["darknes", "darkniss", "darknesse"], hint: "The absence of light; a dark state or condition." },
-  { correct: "shapeless", misspellings: ["shapeles", "shapless", "shaplesse"], hint: "Having no clear or definite shape." },
-  { correct: "ageless", misspellings: ["ageles", "agelass", "agelesse"], hint: "Never seeming to grow old; timeless." },
-  { correct: "illness", misspellings: ["illnes", "illniss", "ilness"], hint: "Being sick; a disease or sickness." },
-  { correct: "goodness", misspellings: ["goodnes", "goodniss", "gudness"], hint: "The quality of being kind, moral, or good." },
-  { correct: "spotless", misspellings: ["spotles", "spotlass", "spottless"], hint: "Perfectly clean with no marks or stains." },
-  { correct: "painless", misspellings: ["painles", "painlass", "panless"], hint: "Without any pain; causing no pain." },
-  { correct: "weakness", misspellings: ["weaknes", "weakniss", "weekness"], hint: "A lack of strength or a personal shortcoming." },
-  { correct: "darkest", misspellings: ["darkist", "darcest", "darkeste"], hint: "Having the least light; superlative of dark." },
-  { correct: "clearest", misspellings: ["clearist", "cleerest", "cleareste"], hint: "Most easy to see or understand; superlative of clear." },
-  { correct: "thoughtful", misspellings: ["thoughtfull", "thoughful", "thoughtfall"], hint: "Considerate of others' feelings; full of thought." },
-
-  // ── R-CONTROLLED VOWELS (er/ir/ur) ──────────────────────
-  { correct: "herb", misspellings: ["herbe", "hurb", "erb"], hint: "A plant used to flavor food or as medicine." },
-  { correct: "person", misspellings: ["persen", "pursun", "persom"], hint: "A human being; an individual." },
-  { correct: "sternly", misspellings: ["sternley", "sturnly", "sternlee"], hint: "In a serious, firm, or strict manner." },
-  { correct: "serpent", misspellings: ["surpent", "serpant", "serpint"], hint: "A snake, especially a large one." },
-  { correct: "worse", misspellings: ["werse", "worce", "wors"], hint: "More bad than something else; lower in quality." },
-  { correct: "pearl", misspellings: ["perl", "pearle", "peral"], hint: "A round, shiny gem formed inside an oyster." },
-  { correct: "dirty", misspellings: ["durty", "derty", "direty"], hint: "Not clean; covered in mud, dust, or grime." },
-  { correct: "birth", misspellings: ["berth", "birht", "birthe"], hint: "The moment when a baby is born; the beginning of life." },
-  { correct: "shirt", misspellings: ["shurt", "shert", "shirte"], hint: "A piece of clothing worn on the upper body." },
-  { correct: "curl", misspellings: ["cirl", "cural", "curle"], hint: "To form into a round or spiral shape." },
-  { correct: "twirl", misspellings: ["twurl", "twirl", "twirl"], hint: "To spin or rotate quickly, like a dancer." },
-  { correct: "curve", misspellings: ["curv", "kurve", "cureve"], hint: "A smoothly bent line; not straight." },
-  { correct: "swirl", misspellings: ["swurl", "swirl", "swirl"], hint: "To move in a spinning or circular pattern." },
-  { correct: "curb", misspellings: ["curbe", "kerb", "currb"], hint: "The raised edge of a sidewalk next to the street." },
-  { correct: "purse", misspellings: ["purce", "perse", "purss"], hint: "A small bag for carrying money and personal items." },
-  { correct: "hurl", misspellings: ["herl", "hurle", "hul"], hint: "To throw something with great force." },
-  { correct: "turkey", misspellings: ["turky", "turkee", "turkie"], hint: "A large bird often eaten at Thanksgiving." },
-  { correct: "turnip", misspellings: ["turnup", "turnipe", "turnnip"], hint: "A round, white root vegetable." },
-  { correct: "purpose", misspellings: ["purpos", "purposse", "porpose"], hint: "The reason something is done or exists." },
-  { correct: "blurred", misspellings: ["blured", "blurrde", "blurrd"], hint: "Not clear or sharp; smeared out of focus." },
-
-  // ── SILENT LETTERS ───────────────────────────────────────
-  { correct: "wrinkle", misspellings: ["rinkle", "wrinkle", "wrincle"], hint: "A small crease or fold in skin or fabric." },
-  { correct: "wriggle", misspellings: ["riggle", "wrigell", "wrigle"], hint: "To twist and turn the body from side to side." },
-  { correct: "wrapper", misspellings: ["rapper", "wraper", "wrappor"], hint: "A piece of paper or plastic covering around something." },
-  { correct: "wrench", misspellings: ["rench", "wrentch", "wrenche"], hint: "A tool for gripping and turning bolts; to twist with force." },
-  { correct: "answer", misspellings: ["anser", "answar", "anwser"], hint: "A reply to a question; a solution to a problem." },
-  { correct: "knead", misspellings: ["nead", "knede", "kneed"], hint: "To press and fold dough with your hands when baking." },
-  { correct: "knives", misspellings: ["nives", "knieves", "knifes"], hint: "The plural of knife; sharp tools used for cutting." },
-  { correct: "known", misspellings: ["nown", "knoen", "knowen"], hint: "Recognized or familiar; past participle of know." },
-  { correct: "kneel", misspellings: ["neel", "kneell", "knele"], hint: "To go down on one or both knees." },
-  { correct: "knew", misspellings: ["new", "knue", "kew"], hint: "Past tense of know; had knowledge of something before." },
-  { correct: "plumber", misspellings: ["plumer", "plummber", "plumer"], hint: "A person who fixes pipes and water systems." },
-  { correct: "combs", misspellings: ["coms", "kombz", "combes"], hint: "Tools with teeth used to style or untangle hair." },
-  { correct: "thumbs", misspellings: ["thums", "thumps", "thums"], hint: "The short, thick fingers on the inside of each hand." },
-  { correct: "lambs", misspellings: ["lams", "lambes", "lambz"], hint: "Baby sheep; young sheep." },
-  { correct: "condemn", misspellings: ["condem", "condemn", "condmen"], hint: "To strongly disapprove of something; to sentence someone." },
-  { correct: "resign", misspellings: ["resin", "rezign", "resignn"], hint: "To quit a job or position voluntarily." },
-  { correct: "doubtful", misspellings: ["doutful", "doubtfull", "dubful"], hint: "Uncertain or not confident that something is true." },
-  { correct: "hour", misspellings: ["our", "houre", "hur"], hint: "A unit of time equal to 60 minutes." },
-  { correct: "honest", misspellings: ["honist", "honnest", "onest"], hint: "Telling the truth; not lying or cheating." },
-  { correct: "honor", misspellings: ["onor", "honer", "honnor"], hint: "Great respect given to someone; to show high regard." },
-
-  // ── SOFT C / SOFT G / DIGRAPH REVIEW ─────────────────────
-  { correct: "center", misspellings: ["senter", "centar", "cennter"], hint: "The middle point of something." },
-  { correct: "once", misspellings: ["wunce", "ounce", "onse"], hint: "One time only; at some point in the past." },
-  { correct: "scene", misspellings: ["seen", "sene", "seene"], hint: "A part of a play or movie; a view or setting." },
-  { correct: "spice", misspellings: ["spise", "spyce", "spice"], hint: "A plant substance used to flavor food, like pepper or cinnamon." },
-  { correct: "circus", misspellings: ["sircus", "circas", "circuss"], hint: "A traveling show with acrobats, clowns, and animals." },
-  { correct: "cement", misspellings: ["sement", "cemant", "ciment"], hint: "A gray powder mixed with water to make concrete." },
-  { correct: "police", misspellings: ["polise", "polece", "pollice"], hint: "Officers who keep the law and protect the community." },
-  { correct: "certain", misspellings: ["sertain", "certan", "certian"], hint: "Sure and without doubt; definitely true." },
-  { correct: "ounce", misspellings: ["once", "ounse", "ounze"], hint: "A small unit of weight; or a small amount of something." },
-  { correct: "glance", misspellings: ["glanse", "glence", "glanse"], hint: "A quick look at something." },
-  { correct: "germs", misspellings: ["germes", "jurms", "germes"], hint: "Tiny living things that can cause sickness and disease." },
-  { correct: "bridge", misspellings: ["brige", "bridg", "brigde"], hint: "A structure built over a river or road to cross it." },
-  { correct: "badge", misspellings: ["badg", "baidge", "badgee"], hint: "A small sign or pin worn to show membership or rank." },
-  { correct: "strange", misspellings: ["stange", "strainge", "stranje"], hint: "Unusual or unfamiliar; hard to explain." },
-  { correct: "orange", misspellings: ["oranje", "orang", "oringe"], hint: "A citrus fruit with bright orange skin; the color between red and yellow." },
-  { correct: "ginger", misspellings: ["jinger", "ginjer", "gingur"], hint: "A spicy root used in cooking and baking." },
-  { correct: "wedge", misspellings: ["wege", "wedj", "weidge"], hint: "A piece of material shaped like a V; to push tightly." },
-  { correct: "arrange", misspellings: ["arange", "arrainge", "arranje"], hint: "To put things in a particular order or to plan something." },
-  { correct: "sponge", misspellings: ["spunge", "sponj", "sponje"], hint: "A soft, porous material used for washing or absorbing liquid." },
-  { correct: "village", misspellings: ["vilage", "villaje", "villige"], hint: "A very small community or town in the countryside." },
-
-  // ── PLURALS & ENDINGS ────────────────────────────────────
-  { correct: "clams", misspellings: ["clamz", "clammes", "claems"], hint: "Shellfish that live in the sand; plural of clam." },
-  { correct: "mints", misspellings: ["mintz", "mintts", "mentes"], hint: "Small candies with a fresh, cool flavor; plural of mint." },
-  { correct: "props", misspellings: ["probs", "propps", "propes"], hint: "Objects used by actors in a play or movie; supports." },
-  { correct: "arches", misspellings: ["arces", "archis", "archez"], hint: "Curved structures that form a doorway or bridge." },
-  { correct: "dresses", misspellings: ["dreses", "dressez", "dressis"], hint: "Garments that cover the body from shoulder to below the waist." },
-  { correct: "parents", misspellings: ["parints", "parentes", "parrnts"], hint: "A mother and a father; people who raise children." },
-  { correct: "caves", misspellings: ["cavez", "caives", "cawves"], hint: "Natural hollow spaces in rocks or underground." },
-  { correct: "glasses", misspellings: ["glases", "glassez", "glassis"], hint: "Frames with lenses worn to help you see; also drinking cups." },
-  { correct: "hobbies", misspellings: ["hobbys", "hobbyes", "hobyes"], hint: "Activities you enjoy doing in your free time." },
-  { correct: "engines", misspellings: ["engiens", "engins", "enjines"], hint: "Machines that produce power to make something move." },
-  { correct: "couches", misspellings: ["couchez", "coches", "coutches"], hint: "Soft, comfortable sofas for sitting or lying down." },
-  { correct: "arrows", misspellings: ["aroes", "arroes", "arrowes"], hint: "Thin, pointed sticks shot from a bow; symbols showing direction." },
-  { correct: "enemies", misspellings: ["enemys", "enamies", "enemyes"], hint: "People or things that are unfriendly or opposed to you." },
-  { correct: "babies", misspellings: ["babys", "babyes", "babeis"], hint: "Very young children; plural of baby." },
-  { correct: "ranches", misspellings: ["ranchez", "ranchs", "ranshes"], hint: "Large farms where cattle or horses are raised." },
-  { correct: "patches", misspellings: ["patchis", "pachez", "patchez"], hint: "Small pieces of material used to cover holes; areas of land." },
-  { correct: "mistakes", misspellings: ["misteaks", "mistaks", "mistakes"], hint: "Errors or things done wrong." },
-  { correct: "supplies", misspellings: ["supplys", "supplyes", "suplyies"], hint: "Things needed and available to use; to provide what is needed." },
-  { correct: "mosses", misspellings: ["mossez", "mosiss", "mosses"], hint: "Small, soft, green plants that grow in damp places; plural of moss." },
-  { correct: "armies", misspellings: ["armys", "armyes", "armeis"], hint: "Large organized groups of soldiers; plural of army." },
-
-  // ── COMPOUND WORDS ───────────────────────────────────────
-  { correct: "fishbowl", misspellings: ["fishbole", "fishboul", "fischbowl"], hint: "A round glass container where fish are kept." },
-  { correct: "lookout", misspellings: ["loockout", "lookot", "loutkout"], hint: "A person watching for danger; a place with a good view." },
-  { correct: "yardstick", misspellings: ["yardstik", "yardstic", "yardstick"], hint: "A measuring stick that is one yard (36 inches) long." },
-  { correct: "desktop", misspellings: ["desktope", "desttop", "desktap"], hint: "The top of a desk; also the main screen of a computer." },
-  { correct: "overhead", misspellings: ["overhed", "overheaed", "overheed"], hint: "Above your head; costs of running a business." },
-  { correct: "waterproof", misspellings: ["waterprouf", "waterpoof", "waterprrof"], hint: "Not allowing water to pass through." },
-  { correct: "grandparent", misspellings: ["grandparrent", "grandparint", "grndparent"], hint: "The parent of your mother or father." },
-  { correct: "railroad", misspellings: ["railrod", "railerode", "railrode"], hint: "A track made of rails on which trains travel." },
-  { correct: "snowstorm", misspellings: ["snowstorme", "snoestorm", "snoustorm"], hint: "A heavy storm with lots of snow and wind." },
-  { correct: "loudspeaker", misspellings: ["loudspeeker", "loutspeaker", "loudspeakor"], hint: "A device that makes sounds louder so many people can hear." },
-  { correct: "bookcase", misspellings: ["bookkase", "bokcase", "bookcaise"], hint: "A piece of furniture with shelves for storing books." },
-  { correct: "bedroom", misspellings: ["bedrume", "bedroome", "bedrum"], hint: "A room in a house used for sleeping." },
-  { correct: "blindfold", misspellings: ["blindfould", "blinffold", "blindfole"], hint: "A cloth tied over the eyes to block sight." },
-  { correct: "newborn", misspellings: ["newbourn", "newborne", "nuborn"], hint: "A very recently born baby." },
-  { correct: "bedspread", misspellings: ["beadspread", "bedspreed", "bedspred"], hint: "A decorative covering placed over a bed." },
-  { correct: "yourself", misspellings: ["yourselff", "yourslef", "youreself"], hint: "You and no one else; done by you alone." },
-  { correct: "overdo", misspellings: ["overdoo", "overdoe", "ovurdo"], hint: "To do too much of something." },
-  { correct: "clothesline", misspellings: ["clothesline", "clothsline", "clothline"], hint: "A rope or wire stretched outside to hang wet laundry on." },
-  { correct: "undertake", misspellings: ["undertaik", "undertaek", "undurtake"], hint: "To begin or take on a task or responsibility." },
-
-  // ── INFLECTED ENDINGS ────────────────────────────────────
-  { correct: "tasted", misspellings: ["tastted", "taisted", "tsted"], hint: "Used your sense of taste to test a food's flavor." },
-  { correct: "ripping", misspellings: ["riping", "rippeng", "rippuing"], hint: "Tearing something quickly and forcefully." },
-  { correct: "forced", misspellings: ["forsed", "forcede", "forsd"], hint: "Made to do something against your will." },
-  { correct: "flipping", misspellings: ["fliping", "flippeng", "flippng"], hint: "Turning something over quickly." },
-  { correct: "tapped", misspellings: ["taped", "tappped", "tapd"], hint: "Hit lightly with the fingertips; past tense of tap." },
-  { correct: "ripped", misspellings: ["riped", "ript", "rippped"], hint: "Torn apart; past tense of rip." },
-  { correct: "flipped", misspellings: ["fliped", "flippd", "flippt"], hint: "Turned over quickly; past tense of flip." },
-  { correct: "skipped", misspellings: ["skiped", "skippd", "skippt"], hint: "Jumped lightly over something; or left something out." },
-  { correct: "scared", misspellings: ["scarred", "scard", "scarede"], hint: "Feeling fear; frightened by something." },
-  { correct: "tapping", misspellings: ["taping", "tappeng", "tappping"], hint: "Hitting lightly and repeatedly with a finger or tool." },
-  { correct: "flagged", misspellings: ["flaged", "flagd", "flaggde"], hint: "Marked with a flag to draw attention." },
-  { correct: "saved", misspellings: ["savved", "savd", "saived"], hint: "Kept from harm or danger; past tense of save." },
-  { correct: "skipping", misspellings: ["skiping", "skippeng", "skippng"], hint: "Jumping lightly over something; leaving parts out." },
-  { correct: "scaring", misspellings: ["scarring", "scareing", "scairing"], hint: "Frightening someone; making someone feel fear." },
-  { correct: "flagging", misspellings: ["flaging", "flaggeng", "flajing"], hint: "Marking something for attention; or growing tired." },
-  { correct: "discussed", misspellings: ["discused", "disscussed", "discust"], hint: "Talked about something in detail with others." },
-  { correct: "saving", misspellings: ["savving", "saveing", "savng"], hint: "Keeping from harm; setting aside for later." },
-  { correct: "tasting", misspellings: ["tastting", "tasting", "taisting"], hint: "Testing the flavor of food or drink." },
-  { correct: "forcing", misspellings: ["forsing", "forceing", "forching"], hint: "Making someone do something; pushing with strength." },
-  { correct: "discussing", misspellings: ["discusing", "disscussing", "discusing"], hint: "Talking about a topic in detail as a group." },
-
-  // ── Y → IES / COMPARATIVE ────────────────────────────────
-  { correct: "funnier", misspellings: ["funier", "funnyer", "funnior"], hint: "More amusing or comical than something else." },
-  { correct: "families", misspellings: ["familys", "familyes", "familes"], hint: "Groups of people related to each other; plural of family." },
-  { correct: "pennies", misspellings: ["penies", "pennyes", "pennis"], hint: "Coins worth one cent each; plural of penny." },
-  { correct: "worried", misspellings: ["woried", "woryed", "worryed"], hint: "Felt anxious or troubled about something." },
-  { correct: "replied", misspellings: ["replyed", "replide", "repled"], hint: "Answered or responded to something." },
-  { correct: "varied", misspellings: ["varyed", "varied", "vared"], hint: "Changed or had many different forms." },
-  { correct: "marries", misspellings: ["marrys", "marriyes", "maries"], hint: "To enter into marriage; third-person singular." },
-  { correct: "carries", misspellings: ["carrys", "carryes", "caries"], hint: "To hold and take something from one place to another." },
-  { correct: "easily", misspellings: ["easly", "easyly", "easiley"], hint: "Without difficulty; in an easy way." },
-  { correct: "silliest", misspellings: ["sillyest", "sillest", "sillest"], hint: "The most silly or foolish; superlative of silly." },
-  { correct: "jumpier", misspellings: ["jumpyer", "jumpior", "jumpier"], hint: "More nervous or easily startled than another." },
-  { correct: "emptier", misspellings: ["emptyer", "emptior", "emtier"], hint: "More empty; having less inside than something else." },
-  { correct: "merrier", misspellings: ["merier", "merryer", "merrior"], hint: "Happier and more cheerful; comparative of merry." },
-  { correct: "applied", misspellings: ["applyed", "applide", "apled"], hint: "Put something to use; requested something formally." },
-  { correct: "cozily", misspellings: ["cozly", "coziley", "cozyly"], hint: "In a warm, comfortable, and snug way." },
-  { correct: "sorriest", misspellings: ["sorryest", "sorriest", "soryest"], hint: "Most full of regret; superlative of sorry." },
-  { correct: "prettily", misspellings: ["pretily", "prettyly", "prettiely"], hint: "In a pretty, attractive way." },
-  { correct: "lazier", misspellings: ["lazyer", "lazior", "lazear"], hint: "More unwilling to work or be active." },
-  { correct: "happiest", misspellings: ["happyest", "hapiest", "happpiest"], hint: "The most happy; superlative of happy." },
-  { correct: "dizziest", misspellings: ["dizzyest", "dizzest", "diziest"], hint: "Most feeling like the room is spinning; superlative of dizzy." },
-
-  // ── LONG-OO / OO WORDS ───────────────────────────────────
-  { correct: "mood", misspellings: ["mude", "moode", "moud"], hint: "The way you feel at a particular time." },
-  { correct: "stew", misspellings: ["stoo", "steuw", "stue"], hint: "A dish of meat and vegetables simmered slowly in liquid." },
-  { correct: "stoop", misspellings: ["stoupe", "stopp", "stuup"], hint: "To bend the body forward and down; a small porch or steps." },
-  { correct: "ruler", misspellings: ["rulor", "rulur", "rulere"], hint: "A flat stick for measuring length; a leader who rules." },
-  { correct: "zoom", misspellings: ["zoome", "zume", "zooem"], hint: "To move very fast; to make an image appear larger." },
-  { correct: "produce", misspellings: ["produse", "produice", "prodoos"], hint: "Fresh fruits and vegetables; to make or create something." },
-  { correct: "crew", misspellings: ["crue", "crewe", "croo"], hint: "A group of people who work together, like on a ship." },
-  { correct: "issue", misspellings: ["ishue", "issew", "issoo"], hint: "A problem or topic to be dealt with; a published edition." },
-  { correct: "tutor", misspellings: ["tutore", "tuttor", "tutur"], hint: "A person who gives private lessons to help someone learn." },
-  { correct: "truth", misspellings: ["trooth", "trueth", "trut"], hint: "What is real and factual; the opposite of a lie." },
-  { correct: "bruised", misspellings: ["brused", "bruized", "bruiced"], hint: "Got a dark mark under the skin from an injury." },
-  { correct: "juicy", misspellings: ["joocy", "juicy", "juicee"], hint: "Full of juice; very interesting or exciting." },
-  { correct: "suits", misspellings: ["sutes", "suitz", "suites"], hint: "Sets of matching clothing; or works well for a purpose." },
-  { correct: "crook", misspellings: ["cruck", "crooke", "cruke"], hint: "A person who does dishonest or illegal things; a bent shape." },
-  { correct: "group", misspellings: ["grupe", "groope", "grup"], hint: "A number of people or things together." },
-  { correct: "wool", misspellings: ["wuul", "woole", "wull"], hint: "Soft, warm fiber from sheep used to make yarn and cloth." },
-  { correct: "you'll", misspellings: ["youll", "you'l", "youl"], hint: "Contraction of 'you will.'" },
-  { correct: "used", misspellings: ["uzed", "yoosed", "usde"], hint: "Employed for a purpose; no longer new." },
-  { correct: "huge", misspellings: ["hyuge", "huje", "hug"], hint: "Extremely large in size." },
-  { correct: "should", misspellings: ["shold", "shoud", "shoul"], hint: "Used to say what is correct, expected, or advisable." },
-
-  // ── DIPHTHONGS (OI / OW) ─────────────────────────────────
-  { correct: "noises", misspellings: ["noizes", "noyses", "noices"], hint: "Sounds, especially loud or unpleasant ones." },
-  { correct: "voices", misspellings: ["voises", "voyces", "voicez"], hint: "Sounds made when people speak or sing." },
-  { correct: "rejoice", misspellings: ["rejoise", "rejoyce", "rejoic"], hint: "To feel or show great happiness and delight." },
-  { correct: "annoy", misspellings: ["anoy", "annoye", "anoi"], hint: "To bother or irritate someone." },
-  { correct: "destroy", misspellings: ["destoy", "destroye", "destroi"], hint: "To completely damage or ruin something." },
-  { correct: "voyage", misspellings: ["voiage", "voyadge", "voyige"], hint: "A long trip or journey, usually by sea or in space." },
-  { correct: "mound", misspellings: ["mounde", "mownd", "mouned"], hint: "A raised heap of earth; the pitcher's platform in baseball." },
-  { correct: "south", misspellings: ["sowth", "soth", "southe"], hint: "The direction opposite of north." },
-  { correct: "pound", misspellings: ["pounde", "pownd", "pouned"], hint: "A unit of weight; to hit hard and repeatedly." },
-  { correct: "hound", misspellings: ["hounde", "hownd", "houned"], hint: "A type of hunting dog; to chase or follow someone." },
-  { correct: "pouch", misspellings: ["pouche", "powch", "poach"], hint: "A small bag or pocket for carrying things." },
-  { correct: "thousand", misspellings: ["thousend", "thousend", "thoussand"], hint: "The number 1,000; ten groups of one hundred." },
-  { correct: "wound", misspellings: ["wounde", "wownd", "wunded"], hint: "An injury to the body; or past tense of wind (to coil)." },
-  { correct: "grouch", misspellings: ["grouche", "growch", "grouch"], hint: "A person who is always in a bad mood and complaining." },
-  { correct: "cowboy", misspellings: ["cowboi", "cowboye", "koboi"], hint: "A person who herds cattle on a ranch, often on horseback." },
-  { correct: "gown", misspellings: ["goune", "goen", "gouwn"], hint: "A long, fancy dress; a robe worn for a special occasion." },
-  { correct: "frown", misspellings: ["froune", "froen", "frowen"], hint: "To make a face showing unhappiness or confusion." },
-  { correct: "howling", misspellings: ["holwing", "howelling", "howleng"], hint: "Making a long, loud cry like a wolf." },
-  { correct: "flower", misspellings: ["flouer", "flowur", "flouwer"], hint: "The colorful blossom of a plant." },
-  { correct: "tower", misspellings: ["touer", "towur", "towwer"], hint: "A very tall, narrow building or structure." },
-
-  // ── VOWEL PATTERNS (AW / ALL) ────────────────────────────
-  { correct: "caught", misspellings: ["caut", "cauhgt", "kawt"], hint: "Grabbed or seized; past tense of catch." },
-  { correct: "laws", misspellings: ["lawz", "laes", "lawes"], hint: "Rules set by the government that everyone must follow." },
-  { correct: "drawn", misspellings: ["droun", "drawne", "draun"], hint: "Made a picture; pulled or attracted to something." },
-  { correct: "strawberry", misspellings: ["strawbery", "strawberrry", "strobery"], hint: "A small, red, heart-shaped fruit that grows on plants." },
-  { correct: "straw", misspellings: ["strawe", "stroe", "straw"], hint: "Dried stems of grain; a thin tube for drinking." },
-  { correct: "awe", misspellings: ["auw", "aww", "aw"], hint: "A feeling of wonder and amazement mixed with respect." },
-  { correct: "shawl", misspellings: ["shaul", "shawle", "shahl"], hint: "A large piece of cloth worn over the shoulders." },
-  { correct: "alter", misspellings: ["altere", "altur", "altear"], hint: "To change something slightly." },
-  { correct: "halt", misspellings: ["holte", "hault", "halte"], hint: "To stop completely; a standstill." },
-  { correct: "talking", misspellings: ["talkeing", "takeing", "talkng"], hint: "Using words to communicate; having a conversation." },
-  { correct: "walker", misspellings: ["walkur", "walkor", "walkar"], hint: "A person who walks; a frame used to help someone walk." },
-  { correct: "chalk", misspellings: ["chawlk", "chaulk", "chak"], hint: "A soft white or colored stick for writing on a blackboard." },
-  { correct: "stalk", misspellings: ["staulk", "stawk", "stolke"], hint: "The stem of a plant; to follow someone secretly." },
-  { correct: "small", misspellings: ["smawl", "smale", "smal"], hint: "Little in size; not large." },
-  { correct: "caller", misspellings: ["callur", "callar", "calor"], hint: "Someone who calls or shouts; a person who phones." },
-  { correct: "squall", misspellings: ["squawl", "squaul", "squal"], hint: "A sudden, violent gust of wind with rain or snow." },
-  { correct: "cough", misspellings: ["coff", "caugh", "cogh"], hint: "To push air out of your throat with a sharp noise." },
-  { correct: "fought", misspellings: ["fout", "fawt", "fohgt"], hint: "Past tense of fight; struggled against something." },
-  { correct: "thought", misspellings: ["thout", "thougt", "thaught"], hint: "Past tense of think; an idea in your mind." },
-  { correct: "false", misspellings: ["faulse", "falce", "faulse"], hint: "Not true; incorrect." },
-
-  // ── MULTISYLLABIC WORDS ──────────────────────────────────
-  { correct: "blanket", misspellings: ["blankette", "blankit", "blenket"], hint: "A warm covering used in bed or to stay cozy." },
-  { correct: "blossom", misspellings: ["blossom", "blosom", "blossem"], hint: "The flower of a plant; to begin to bloom or flourish." },
-  { correct: "dipper", misspellings: ["dipur", "dippur", "dipor"], hint: "A tool for scooping liquid; a group of stars shaped like a cup." },
-  { correct: "distant", misspellings: ["distint", "distante", "distend"], hint: "Far away in space or time." },
-  { correct: "foggy", misspellings: ["fogey", "foggie", "fogey"], hint: "Full of thick mist making it hard to see." },
-  { correct: "fossil", misspellings: ["fosil", "fossile", "fassil"], hint: "The preserved remains of a plant or animal from long ago." },
-  { correct: "member", misspellings: ["membur", "membar", "membor"], hint: "A person who belongs to a group or organization." },
-  { correct: "nodded", misspellings: ["noded", "nodede", "noddde"], hint: "Moved the head up and down to say yes." },
-  { correct: "planner", misspellings: ["planer", "plannor", "plannur"], hint: "A person who makes plans; a book for organizing your schedule." },
-  { correct: "plastic", misspellings: ["plasitc", "plastick", "plasttick"], hint: "A light, man-made material used to make many products." },
-  { correct: "rumbles", misspellings: ["rumbels", "rumles", "rumblez"], hint: "Makes low rolling sounds, like thunder or a stomach." },
-  { correct: "slender", misspellings: ["slendur", "slinder", "slendar"], hint: "Thin and graceful; not thick." },
-  { correct: "summer", misspellings: ["sumer", "summur", "summar"], hint: "The warmest season of the year." },
-  { correct: "swallow", misspellings: ["swollow", "swaloe", "swalloe"], hint: "To move food or drink from your mouth to your stomach; a type of bird." },
-  { correct: "tablet", misspellings: ["tablit", "tableett", "tablat"], hint: "A small, flat device used like a computer; also a pill." },
-  { correct: "thriller", misspellings: ["thriler", "thrillur", "thrillar"], hint: "An exciting story or movie full of suspense." },
-  { correct: "traffic", misspellings: ["traffick", "trafic", "traffiic"], hint: "Vehicles moving on roads; the flow of cars and trucks." },
-  { correct: "welcome", misspellings: ["wellcome", "welcom", "welcum"], hint: "A friendly greeting for someone arriving." },
-  { correct: "willow", misspellings: ["willoe", "willowe", "wiloe"], hint: "A tree with long, drooping branches." },
-  { correct: "witness", misspellings: ["witniss", "witnes", "witnesse"], hint: "A person who sees something happen; to observe an event." },
-
-  // ── OPEN/CLOSED SYLLABLE LONG VOWELS ────────────────────
-  { correct: "famous", misspellings: ["famus", "fameous", "famoose"], hint: "Well known by many people." },
-  { correct: "radar", misspellings: ["raider", "raddar", "radaar"], hint: "A system that uses radio waves to detect objects." },
-  { correct: "razor", misspellings: ["razer", "razore", "rasor"], hint: "A sharp tool used for shaving." },
-  { correct: "vacancy", misspellings: ["vacency", "vacency", "vacansee"], hint: "An empty space or position not yet filled." },
-  { correct: "beside", misspellings: ["besied", "besyde", "byside"], hint: "Next to; at the side of something." },
-  { correct: "beyond", misspellings: ["beyonde", "biyond", "beyound"], hint: "Farther away; on the other side of something." },
-  { correct: "defend", misspellings: ["defende", "deffend", "dfend"], hint: "To protect from attack or harm." },
-  { correct: "delay", misspellings: ["delaye", "deley", "delaiy"], hint: "To make something happen later than planned." },
-  { correct: "demand", misspellings: ["demande", "demend", "diemand"], hint: "To ask for something firmly; a strong request." },
-  { correct: "prevent", misspellings: ["prevente", "prevint", "prvent"], hint: "To stop something from happening." },
-  { correct: "secret", misspellings: ["secrit", "seekret", "secrite"], hint: "Something known only to a few people; hidden." },
-  { correct: "veto", misspellings: ["vieto", "vetoe", "veeto"], hint: "To reject or say no to a plan or law." },
-  { correct: "bison", misspellings: ["byson", "bisone", "bisen"], hint: "A large, shaggy wild animal like a buffalo." },
-  { correct: "diver", misspellings: ["dyver", "divore", "divor"], hint: "A person who jumps into water or dives underwater." },
-  { correct: "cider", misspellings: ["sider", "cydar", "cydor"], hint: "A drink made from pressed apples." },
-  { correct: "silence", misspellings: ["silense", "sylence", "silince"], hint: "Complete quiet; the absence of sound." },
-  { correct: "clover", misspellings: ["clovur", "clovar", "klover"], hint: "A small plant with three-leafed clusters, often found in grass." },
-  { correct: "spoken", misspellings: ["spocken", "spokken", "spokine"], hint: "Said aloud; past participle of speak." },
-  { correct: "stolen", misspellings: ["stollin", "stollen", "stolene"], hint: "Taken without permission; past participle of steal." },
-  { correct: "tulip", misspellings: ["tulop", "tulippe", "tulupe"], hint: "A brightly colored spring flower shaped like a cup." },
-
-  // ── LONG-VOWEL PATTERNS REVIEW ───────────────────────────
-  { correct: "brain", misspellings: ["brane", "braen", "brean"], hint: "The organ in your head that controls thinking and feeling." },
-  { correct: "staircase", misspellings: ["starecase", "stairscase", "stairccaise"], hint: "A set of stairs inside a building connecting floors." },
-  { correct: "domain", misspellings: ["domane", "domaen", "domayn"], hint: "An area of knowledge or territory; a website address." },
-  { correct: "praise", misspellings: ["praze", "praize", "praice"], hint: "To express approval and admiration for someone." },
-  { correct: "trainer", misspellings: ["trainner", "traynor", "trainor"], hint: "A person who teaches or prepares someone for a sport or skill." },
-  { correct: "oatmeal", misspellings: ["oatmeel", "otmeal", "oatmael"], hint: "A warm breakfast food made from rolled oats." },
-  { correct: "beneath", misspellings: ["beneeth", "beneith", "bineath"], hint: "Under or below something." },
-  { correct: "repeat", misspellings: ["repeet", "repeate", "reapeat"], hint: "To say or do something again." },
-  { correct: "reveal", misspellings: ["reveel", "reveile", "revaiel"], hint: "To show or make something known." },
-  { correct: "increase", misspellings: ["increse", "increese", "incraise"], hint: "To grow larger or greater in amount." },
-  { correct: "sneak", misspellings: ["sneek", "sneake", "sneke"], hint: "To move quietly so as not to be seen or heard." },
-  { correct: "boast", misspellings: ["boaste", "bost", "boaset"], hint: "To brag or talk proudly about yourself." },
-  { correct: "oat", misspellings: ["oate", "owt", "oat"], hint: "A grain used to make oatmeal and animal feed." },
-  { correct: "croak", misspellings: ["croake", "croke", "croac"], hint: "The sound a frog makes; a rough, hoarse voice." },
-  { correct: "compound", misspellings: ["commpound", "compouned", "compund"], hint: "Something made of two or more parts; a walled area with buildings." },
-  { correct: "discount", misspellings: ["discont", "discaunt", "disconut"], hint: "A reduction in the price of something." },
-  { correct: "speed", misspellings: ["spede", "speeed", "spead"], hint: "How fast something moves; to move very fast." },
-  { correct: "sleeve", misspellings: ["sleave", "sleive", "sleev"], hint: "The part of a shirt or jacket that covers your arm." },
-  { correct: "sheep", misspellings: ["shep", "sheap", "shepe"], hint: "Woolly animals that live on farms and travel in flocks." },
-  { correct: "baboon", misspellings: ["babune", "baboun", "baboonn"], hint: "A large monkey with a dog-like face and a colorful bottom." },
-
-  // ── -ER SUFFIX (AGENT NOUNS) ─────────────────────────────
-  { correct: "grocer", misspellings: ["groser", "grrocer", "grosur"], hint: "A person who sells food in a grocery store." },
-  { correct: "pepper", misspellings: ["peper", "peppur", "peppar"], hint: "A spicy seasoning used in cooking; a type of vegetable." },
-  { correct: "barber", misspellings: ["barbur", "barbar", "barbert"], hint: "A person whose job is cutting hair." },
-  { correct: "grader", misspellings: ["gradur", "gradar", "graider"], hint: "A machine that levels ground; or a student in a certain grade." },
-  { correct: "polar", misspellings: ["polur", "poler", "pollor"], hint: "Relating to the North or South Pole; very cold." },
-  { correct: "tanker", misspellings: ["tankor", "tankur", "tancar"], hint: "A large ship or truck that carries liquid like oil." },
-  { correct: "singer", misspellings: ["singor", "singur", "singger"], hint: "A person who performs songs with their voice." },
-  { correct: "enter", misspellings: ["entur", "intor", "entear"], hint: "To go into a place or room." },
-  { correct: "odor", misspellings: ["odour", "odur", "odar"], hint: "A smell, often an unpleasant one." },
-  { correct: "collar", misspellings: ["collor", "collur", "colar"], hint: "The part of clothing around the neck; a band around a pet's neck." },
-  { correct: "zipper", misspellings: ["zipur", "zippar", "zipor"], hint: "A fastener with interlocking teeth used to close clothing." },
-  { correct: "powder", misspellings: ["powdur", "powdar", "pouder"], hint: "A fine, dry substance made of tiny particles." },
-  { correct: "danger", misspellings: ["dangor", "dangur", "dangar"], hint: "The possibility of harm or injury." },
-  { correct: "cheddar", misspellings: ["cheder", "cheddur", "chedar"], hint: "A firm, yellowish-orange cheese." },
-  { correct: "popular", misspellings: ["populur", "populer", "popolar"], hint: "Liked or enjoyed by many people." },
-  { correct: "harbor", misspellings: ["harbur", "harbar", "harbore"], hint: "A sheltered area of water where ships dock safely." },
-  { correct: "anchor", misspellings: ["ankur", "anckor", "anchur"], hint: "A heavy object dropped to keep a ship from drifting." },
-  { correct: "elevator", misspellings: ["elevater", "elevatur", "elevetor"], hint: "A machine that carries people between floors of a building." },
-  { correct: "daughter", misspellings: ["dauther", "doughter", "dawter"], hint: "A female child." },
-  { correct: "victor", misspellings: ["victur", "viktur", "victore"], hint: "A person who wins a contest or battle." },
-
-  // ── -LE ENDING WORDS ─────────────────────────────────────
-  { correct: "pebble", misspellings: ["peble", "pebel", "pebble"], hint: "A small, smooth stone." },
-  { correct: "humble", misspellings: ["humble", "humbal", "humbel"], hint: "Not proud; modest about your own abilities." },
-  { correct: "double", misspellings: ["dubble", "dobal", "doubal"], hint: "Twice as much; having two of something." },
-  { correct: "gamble", misspellings: ["gambal", "gambel", "ganble"], hint: "To take a risk; to bet money on an outcome." },
-  { correct: "trouble", misspellings: ["troubel", "truoble", "troble"], hint: "A difficult situation; to bother or worry someone." },
-  { correct: "uncle", misspellings: ["uncal", "unkle", "uncel"], hint: "The brother of your mother or father." },
-  { correct: "needle", misspellings: ["nedle", "neeble", "needel"], hint: "A thin, pointed tool used for sewing." },
-  { correct: "fiddle", misspellings: ["fidal", "fidel", "fiddel"], hint: "A violin; to play around with something restlessly." },
-  { correct: "cuddle", misspellings: ["cuddal", "cuddel", "cudal"], hint: "To hold someone close in a warm hug." },
-  { correct: "cradle", misspellings: ["cradal", "cradel", "craidle"], hint: "A small bed that rocks, used for babies." },
-  { correct: "jungle", misspellings: ["jungal", "jungel", "jungl"], hint: "A dense, tropical forest with lots of vegetation." },
-  { correct: "single", misspellings: ["singal", "singel", "singl"], hint: "Only one; not married or paired." },
-  { correct: "marble", misspellings: ["marbal", "marbel", "marbl"], hint: "A hard, polished stone; a small glass ball used in games." },
-  { correct: "ramble", misspellings: ["rambal", "rambel", "rambl"], hint: "To walk without a definite route; to talk at length without focus." },
-  { correct: "tackle", misspellings: ["tackal", "tackel", "tacle"], hint: "To deal with a problem; to bring someone to the ground in football." },
-  { correct: "ankle", misspellings: ["ancal", "ankel", "ancle"], hint: "The joint connecting your foot to your leg." },
-  { correct: "freckle", misspellings: ["freckal", "freckel", "frecl"], hint: "A small, brownish spot on the skin." },
-  { correct: "buckle", misspellings: ["buckal", "buckel", "buckl"], hint: "A metal fastener used on belts and straps." },
-  { correct: "hustle", misspellings: ["hustal", "hustel", "hussel"], hint: "To move quickly and with energy; to work hard." },
-  { correct: "tangle", misspellings: ["tangal", "tangel", "tangl"], hint: "A knot or twisted mess; to become twisted together." },
-
-  // ── -EN ENDING WORDS ─────────────────────────────────────
-  { correct: "shaken", misspellings: ["shacken", "shaken", "shakin"], hint: "Moved back and forth rapidly; disturbed or upset." },
-  { correct: "sunken", misspellings: ["suncken", "sunkken", "sunkinn"], hint: "Gone below the surface; fallen below the normal level." },
-  { correct: "eleven", misspellings: ["elevven", "elevin", "elevun"], hint: "The number 11; one more than ten." },
-  { correct: "woven", misspellings: ["wovven", "wovin", "wovun"], hint: "Made by lacing threads together; past tense of weave." },
-  { correct: "widen", misspellings: ["widdin", "wydden", "widn"], hint: "To make or become broader or wider." },
-  { correct: "ridden", misspellings: ["ridin", "riddin", "riddn"], hint: "Traveled on horseback or in a vehicle; past participle of ride." },
-  { correct: "proven", misspellings: ["proovin", "provven", "provun"], hint: "Shown to be true through evidence; past participle of prove." },
-  { correct: "often", misspellings: ["offen", "oftin", "offten"], hint: "Many times; frequently." },
-  { correct: "robin", misspellings: ["robbin", "robun", "roben"], hint: "A small red-breasted bird common in North America." },
-  { correct: "cousin", misspellings: ["cuzin", "cuzzen", "cousinn"], hint: "The child of your aunt or uncle." },
-  { correct: "raisin", misspellings: ["raisen", "rayzin", "rayzin"], hint: "A dried grape used in baking and snacking." },
-  { correct: "muffin", misspellings: ["mufin", "muffin", "muffun"], hint: "A small, round, sweet baked cake." },
-  { correct: "penguin", misspellings: ["pengun", "pengwin", "penguinn"], hint: "A black-and-white bird from Antarctica that cannot fly." },
-  { correct: "button", misspellings: ["butten", "buttin", "buttonn"], hint: "A small disc sewn on clothing to fasten it; a switch you press." },
-  { correct: "reason", misspellings: ["reasun", "reezon", "reson"], hint: "The cause or explanation for something." },
-  { correct: "cotton", misspellings: ["cottin", "cotten", "cottonn"], hint: "A soft, white plant fiber used to make fabric and clothing." },
-  { correct: "wagon", misspellings: ["waggon", "wagun", "wagenn"], hint: "A four-wheeled vehicle pulled by horses or people." },
-  { correct: "dragon", misspellings: ["draggin", "dragun", "dragan"], hint: "A mythical flying creature that breathes fire." },
-  { correct: "common", misspellings: ["commen", "commin", "commonn"], hint: "Found often; shared by many; usual or ordinary." },
-  { correct: "skeleton", misspellings: ["skeliton", "skelleton", "skellton"], hint: "The framework of bones inside a body." },
-
-  // ── HOMOPHONES ───────────────────────────────────────────
-  { correct: "root", misspellings: ["rute", "roote", "rout"], hint: "The part of a plant that grows underground and absorbs water." },
-  { correct: "prince", misspellings: ["prins", "prinnce", "prinse"], hint: "The son of a king or queen." },
-  { correct: "tale", misspellings: ["tael", "taile", "tiel"], hint: "A story, often fictional or legendary." },
-  { correct: "dough", misspellings: ["doe", "doh", "doegh"], hint: "A thick mixture of flour and water used to make bread." },
-  { correct: "wade", misspellings: ["waid", "wayde", "waed"], hint: "To walk through water or a deep substance." },
-  { correct: "moose", misspellings: ["moose", "mouce", "moos"], hint: "A large deer-like animal with wide, flat antlers." },
-  { correct: "tail", misspellings: ["tale", "tael", "tayle"], hint: "The part at the back end of an animal's body." },
-  { correct: "prints", misspellings: ["printz", "prents", "prinnts"], hint: "Marks made by pressing something; copies of photographs." },
-  { correct: "we've", misspellings: ["weve", "we'v", "weeve"], hint: "Contraction of 'we have.'" },
-  { correct: "weave", misspellings: ["weeve", "waive", "weive"], hint: "To lace threads together to make fabric." },
-  { correct: "whose", misspellings: ["who's", "whos", "hoose"], hint: "Belonging to which person (Whose coat is this?)." },
-  { correct: "who's", misspellings: ["whose", "whos", "who'ss"], hint: "Contraction of 'who is' or 'who has.'" },
-  { correct: "route", misspellings: ["rowt", "rout", "roote"], hint: "A path or road taken to get somewhere." },
-  { correct: "boulder", misspellings: ["bolder", "boalder", "boldar"], hint: "A very large rock." },
-  { correct: "bolder", misspellings: ["boulder", "boldar", "boldore"], hint: "More brave or daring; comparative of bold." },
-  { correct: "weighed", misspellings: ["weied", "waied", "wayed"], hint: "Found out the weight of something; past tense of weigh." },
-  { correct: "patience", misspellings: ["patiance", "patiense", "pacience"], hint: "The ability to wait calmly without getting upset." },
-  { correct: "patients", misspellings: ["patientes", "patiants", "pacients"], hint: "People receiving medical care from a doctor." },
-  { correct: "doe", misspellings: ["doh", "dowe", "doa"], hint: "A female deer." },
-  { correct: "mousse", misspellings: ["moose", "mouce", "moos"], hint: "A light, creamy dessert or hair-styling foam." },
-
-  // ── NEGATIVE PREFIXES ────────────────────────────────────
-  { correct: "discourage", misspellings: ["discurage", "disscourage", "discourge"], hint: "To cause someone to lose confidence or motivation." },
-  { correct: "disappoint", misspellings: ["disapoint", "dissapoint", "disappont"], hint: "To make someone feel sad because expectations were not met." },
-  { correct: "disbelief", misspellings: ["disbeliefe", "disbeleif", "disbeleif"], hint: "The feeling that something is not true or real." },
-  { correct: "distrust", misspellings: ["disstrust", "disturst", "distrst"], hint: "Lack of confidence in someone; suspicion." },
-  { correct: "disloyal", misspellings: ["disloyal", "disloyale", "disloyel"], hint: "Not faithful or loyal to someone." },
-  { correct: "misplace", misspellings: ["misplase", "misplace", "missplace"], hint: "To lose something by putting it in the wrong spot." },
-  { correct: "mislabel", misspellings: ["mislabble", "mislabele", "misslebel"], hint: "To put the wrong label on something." },
-  { correct: "mislead", misspellings: ["misleade", "mislid", "missled"], hint: "To cause someone to have a wrong idea or understanding." },
-  { correct: "misstep", misspellings: ["mistep", "misstepp", "missteppe"], hint: "A wrong or clumsy step; a mistake in judgment." },
-  { correct: "nonfat", misspellings: ["non-fat", "nonfatte", "nonnfat"], hint: "Containing no fat, as in nonfat milk." },
-  { correct: "nonfiction", misspellings: ["non-fiction", "nonficton", "nonficiton"], hint: "Writing about real events and facts; not made up." },
-  { correct: "nonsense", misspellings: ["nonsence", "nonnense", "nonsanse"], hint: "Words or behavior that make no sense or are silly." },
-  { correct: "nonstop", misspellings: ["non-stop", "nonstopp", "nonstope"], hint: "Without any stops or breaks; continuous." },
-  { correct: "unable", misspellings: ["uneble", "unnable", "unebel"], hint: "Not able to do something." },
-  { correct: "unplug", misspellings: ["unpluge", "unnplug", "unplaug"], hint: "To pull a plug out of an electrical socket." },
-  { correct: "uncertain", misspellings: ["uncertian", "unsertain", "uncertainn"], hint: "Not sure or not decided; doubtful." },
-  { correct: "uncomfortable", misspellings: ["uncomfertable", "uncomftable", "uncomfrable"], hint: "Not at ease; causing discomfort." },
-  { correct: "uncover", misspellings: ["uncovver", "unconver", "uncovere"], hint: "To remove a cover; to find something hidden." },
-  { correct: "unclean", misspellings: ["uncleen", "unclene", "unkleen"], hint: "Not clean; dirty or impure." },
-
-  // ── SUFFIX REVIEW ────────────────────────────────────────
-  { correct: "wireless", misspellings: ["wireles", "wirless", "wirreless"], hint: "Without wires; sending signals through the air." },
-  { correct: "sunny", misspellings: ["sunney", "sunni", "sunney"], hint: "Bright with sunlight; cheerful." },
-  { correct: "furry", misspellings: ["furrey", "furri", "furey"], hint: "Covered with soft fur." },
-  { correct: "really", misspellings: ["realy", "realley", "realli"], hint: "In fact; truly; used to emphasize something." },
-  { correct: "hairy", misspellings: ["haiery", "hairey", "hairi"], hint: "Covered with a lot of hair." },
-  { correct: "barely", misspellings: ["barrely", "barley", "bairly"], hint: "Only just; hardly at all." },
-  { correct: "tasteless", misspellings: ["tasteles", "tastlass", "taistless"], hint: "Having no flavor; also showing poor judgment." },
-  { correct: "handful", misspellings: ["handfull", "handfall", "handfal"], hint: "As much as your hand can hold; a small number." },
-  { correct: "lifeless", misspellings: ["lifeles", "lifelass", "lifless"], hint: "Without life; showing no energy or movement." },
-  { correct: "fitness", misspellings: ["fitnes", "fitniss", "fittniss"], hint: "The state of being physically healthy and strong." },
-  { correct: "hopefully", misspellings: ["hopfully", "hopefuly", "hopeflly"], hint: "In a hopeful way; it is to be hoped." },
-  { correct: "happiness", misspellings: ["hapiness", "happiniss", "happinesse"], hint: "The state of feeling joy and contentment." },
-  { correct: "fullness", misspellings: ["fulness", "fullniss", "fullnesse"], hint: "The state of being full or complete." },
-  { correct: "sorrowful", misspellings: ["sorrowfull", "sorrowfall", "sorrowfl"], hint: "Feeling or showing deep sadness." },
-  { correct: "gently", misspellings: ["gentley", "gentli", "gintly"], hint: "In a mild, soft, or careful way." },
-  { correct: "sickness", misspellings: ["sicknes", "sickniss", "sicknniss"], hint: "The condition of being ill." },
-  { correct: "joyfully", misspellings: ["joyfully", "joyfuly", "joyfuly"], hint: "In a very happy and joyous way." },
-  { correct: "aimless", misspellings: ["aimeles", "aimlass", "aimles"], hint: "Without a clear purpose or goal." },
-  { correct: "breathless", misspellings: ["breatheles", "breathlass", "brethless"], hint: "Unable to breathe normally, often from excitement or effort." },
-  { correct: "certainly", misspellings: ["certanly", "certinly", "certainley"], hint: "Without doubt; definitely." },
-
-  // ── MORE PREFIXES ────────────────────────────────────────
-  { correct: "unchanged", misspellings: ["unchainged", "unchaged", "unchangede"], hint: "Not altered or different from before." },
-  { correct: "unnamed", misspellings: ["unnaimed", "unamed", "unnamede"], hint: "Not given a name; anonymous." },
-  { correct: "restate", misspellings: ["re-state", "restaite", "restaet"], hint: "To say something again, often in a different way." },
-  { correct: "reverse", misspellings: ["revearse", "revirse", "revers"], hint: "To go in the opposite direction; to undo something." },
-  { correct: "infrequent", misspellings: ["infrequant", "infreqent", "infrequente"], hint: "Not happening often; rare." },
-  { correct: "invisible", misspellings: ["invisable", "invisibel", "invisiple"], hint: "Unable to be seen." },
-  { correct: "prepaid", misspellings: ["pre-paid", "prepaied", "prepayd"], hint: "Paid for ahead of time." },
-  { correct: "displease", misspellings: ["displeese", "displeaze", "displese"], hint: "To make someone unhappy or annoyed." },
-  { correct: "action", misspellings: ["accion", "acshun", "actoin"], hint: "The process of doing something; a deed." },
-  { correct: "establishment", misspellings: ["establisment", "establisshment", "establshment"], hint: "The act of creating something; a business or institution." },
-  { correct: "oversized", misspellings: ["oversized", "overseized", "oversizede"], hint: "Larger than the normal or expected size." },
-  { correct: "prejudge", misspellings: ["pre-judge", "preejudge", "prejuge"], hint: "To form an opinion before knowing all the facts." },
-  { correct: "interstate", misspellings: ["interstait", "interstaite", "innterstate"], hint: "A highway that connects different states." },
-  { correct: "intersect", misspellings: ["interssect", "inntersect", "intersekt"], hint: "To cross or pass through each other." },
-  { correct: "semiweekly", misspellings: ["semi-weekly", "semiweekely", "semiweakly"], hint: "Happening twice a week." },
-  { correct: "happily", misspellings: ["happyly", "hapily", "happiley"], hint: "In a happy or pleased way." },
-  { correct: "kindness", misspellings: ["kindnes", "kindniss", "kindnesse"], hint: "The quality of being friendly and generous." },
-  { correct: "finally", misspellings: ["finaly", "finelly", "finalley"], hint: "At last; after a long time or wait." },
-  { correct: "fearful", misspellings: ["fearfull", "fearfall", "ferful"], hint: "Feeling or showing fear; frightening." },
-
-  // ── VOCABULARY SET 1 ─────────────────────────────────────
-  { correct: "celebrity", misspellings: ["celebrety", "celeberty", "celebraty"], hint: "A famous and well-known person, like a movie star or athlete." },
-  { correct: "counsel", misspellings: ["councell", "counsil", "counsle"], hint: "To give advice; a lawyer who advises clients." },
-  { correct: "demonstrate", misspellings: ["demonstrait", "demonstraite", "demmonstrate"], hint: "To show how something works; to prove by example." },
-  { correct: "drowsy", misspellings: ["drowsey", "drouzy", "drousey"], hint: "Feeling sleepy or tired." },
-  { correct: "essential", misspellings: ["essensial", "essintial", "esential"], hint: "Absolutely necessary; extremely important." },
-  { correct: "hardship", misspellings: ["harship", "hardshipp", "hardshipe"], hint: "Difficulty or suffering caused by a lack of something." },
-  { correct: "haul", misspellings: ["houl", "hawl", "hael"], hint: "To pull or carry something heavy over a distance." },
-  { correct: "humble", misspellings: ["humbal", "humbel", "humbl"], hint: "Not proud or arrogant; modest about your abilities." },
-  { correct: "pledge", misspellings: ["pledg", "plege", "pledje"], hint: "A serious promise or commitment." },
-  { correct: "sincere", misspellings: ["sinceer", "sincear", "sinsere"], hint: "Genuinely meaning what you say; honest and real." },
-  { correct: "stampede", misspellings: ["stammpede", "stampeed", "stampeed"], hint: "A sudden rush of frightened animals or people." },
-  { correct: "suitable", misspellings: ["suitible", "suitabel", "sutable"], hint: "Right or appropriate for a particular purpose or situation." },
-
-  // ── VOCABULARY SET 2 ─────────────────────────────────────
-  { correct: "annual", misspellings: ["annuel", "annuall", "anual"], hint: "Happening once every year." },
-  { correct: "basic", misspellings: ["basick", "basik", "baisic"], hint: "Simple and fundamental; not complicated." },
-  { correct: "competition", misspellings: ["competion", "competiton", "competetion"], hint: "A contest where people try to win against each other." },
-  { correct: "contract", misspellings: ["contractt", "contrackt", "contrakt"], hint: "A legal agreement between two or more people." },
-  { correct: "dismiss", misspellings: ["dismis", "dismiss", "desmiss"], hint: "To send someone away; to reject an idea or claim." },
-  { correct: "neglect", misspellings: ["neglact", "negleckt", "neglecte"], hint: "To fail to give proper attention or care to something." },
-  { correct: "obtain", misspellings: ["obtane", "obtian", "obtaen"], hint: "To get or acquire something, often by effort." },
-  { correct: "portion", misspellings: ["porshun", "portoin", "portione"], hint: "A part of a whole; a serving of food." },
-  { correct: "recall", misspellings: ["recal", "recalle", "racall"], hint: "To remember something; to bring something back." },
-  { correct: "sponsor", misspellings: ["sponsur", "sponser", "sponcor"], hint: "A person or company that supports an event or person financially." },
-  { correct: "stern", misspellings: ["sturn", "stren", "sterne"], hint: "Serious and firm; not gentle or kind." },
-  { correct: "vacant", misspellings: ["vacent", "vakant", "vacante"], hint: "Empty; not occupied or in use." },
-
-  // ── VOCABULARY SET 3 ─────────────────────────────────────
-  { correct: "attractive", misspellings: ["attractiv", "attracttive", "atractive"], hint: "Pleasing to look at or be around; appealing." },
-  { correct: "burden", misspellings: ["burdan", "burdun", "bourden"], hint: "A heavy load; something difficult to bear or carry." },
-  { correct: "consent", misspellings: ["consant", "connsent", "consente"], hint: "Permission or agreement to do something." },
-  { correct: "dependable", misspellings: ["dependabel", "dependible", "dependible"], hint: "Reliable; can be trusted to do what is expected." },
-  { correct: "indicate", misspellings: ["indecate", "inducate", "indicaite"], hint: "To point to or show; to suggest or signal something." },
-  { correct: "previous", misspellings: ["prevous", "preveous", "previos"], hint: "Coming before in time or order; earlier." },
-  { correct: "qualify", misspellings: ["qualifiy", "qualfy", "qualifey"], hint: "To meet the requirements needed for something." },
-  { correct: "response", misspellings: ["responce", "respons", "respponse"], hint: "An answer or reaction to something." },
-  { correct: "shabby", misspellings: ["shaby", "shabbey", "shabbey"], hint: "Worn out and looking old; in poor condition." },
-  { correct: "thaw", misspellings: ["thawe", "thow", "thau"], hint: "To melt after being frozen; to warm up from the cold." },
-
-  // ── VOCABULARY SET 4 ─────────────────────────────────────
-  { correct: "ambush", misspellings: ["ambushe", "ambush", "ambusch"], hint: "A surprise attack from a hidden position." },
-  { correct: "calculate", misspellings: ["calculaite", "calcalate", "calculete"], hint: "To figure out using math or careful thought." },
-  { correct: "contribute", misspellings: ["contribut", "contrubute", "contribuite"], hint: "To give something, like time or money, to a shared goal." },
-  { correct: "dread", misspellings: ["drede", "dreed", "draed"], hint: "A feeling of great fear about something that will happen." },
-  { correct: "employ", misspellings: ["imploy", "employe", "empliy"], hint: "To give someone a job; to use something for a purpose." },
-  { correct: "extend", misspellings: ["extende", "exstend", "extand"], hint: "To make something longer or larger; to reach out." },
-  { correct: "frantic", misspellings: ["frantick", "frantik", "franntic"], hint: "Wild with worry or fear; very excited or hurried." },
-  { correct: "initial", misspellings: ["initail", "inishal", "initiall"], hint: "Coming first; the first letter of a name." },
-  { correct: "routine", misspellings: ["routeen", "routien", "routene"], hint: "A regular set of actions done in the same order." },
-  { correct: "stun", misspellings: ["stunn", "stune", "stun"], hint: "To shock or amaze; to briefly make someone unconscious." },
-  { correct: "sturdy", misspellings: ["sturdey", "sturdi", "sterdy"], hint: "Strong and solid; not easily damaged or broken." },
-  { correct: "yield", misspellings: ["yeild", "yelde", "yielde"], hint: "To give way or produce; to produce a result." },
-
-  // ── VOCABULARY SET 5 ─────────────────────────────────────
-  { correct: "antique", misspellings: ["antiqu", "anteek", "anteeq"], hint: "Something very old and valuable because of its age." },
-  { correct: "baggage", misspellings: ["bagage", "baggge", "bagaje"], hint: "Suitcases and bags when traveling; unwanted emotional issues." },
-  { correct: "digest", misspellings: ["dijest", "degest", "dijiest"], hint: "To break down food in your stomach; to think through information slowly." },
-  { correct: "establish", misspellings: ["establsh", "estabishl", "establesh"], hint: "To set up or start something permanently." },
-  { correct: "eternal", misspellings: ["eternel", "eternall", "eturnal"], hint: "Lasting forever; without end." },
-  { correct: "haste", misspellings: ["haist", "heist", "haiste"], hint: "Great speed or urgency in doing something." },
-  { correct: "humid", misspellings: ["humide", "hummid", "humed"], hint: "Having a lot of moisture in the air; damp and warm." },
-  { correct: "lash", misspellings: ["lashe", "lasch", "lach"], hint: "To strike with great force; a strip used to tie things; an eyelash." },
-  { correct: "oppose", misspellings: ["oppoze", "oppos", "opose"], hint: "To be against something or someone; to resist." },
-  { correct: "pioneer", misspellings: ["pionere", "pionieer", "pionner"], hint: "One of the first people to do something; an early settler." },
-  { correct: "sensible", misspellings: ["sensibel", "sensable", "sensiple"], hint: "Showing good judgment; practical and reasonable." },
-  { correct: "worthy", misspellings: ["worthey", "worthi", "worty"], hint: "Deserving respect, praise, or attention." },
-
-  // ── VOCABULARY SET 6 ─────────────────────────────────────
-  { correct: "blossom", misspellings: ["blosom", "blossem", "blossume"], hint: "A flower, especially on a fruit tree; to grow and develop." },
-  { correct: "collide", misspellings: ["colide", "collied", "colllide"], hint: "To crash into something or someone." },
-  { correct: "constant", misspellings: ["consant", "constent", "constante"], hint: "Happening all the time without stopping; faithful." },
-  { correct: "content", misspellings: ["contant", "contenttt", "contint"], hint: "Satisfied and happy; the material inside something." },
-  { correct: "distract", misspellings: ["distrakt", "destract", "districkt"], hint: "To pull attention away from what someone is doing." },
-  { correct: "drought", misspellings: ["drout", "drouht", "drowth"], hint: "A long period without rain causing water shortages." },
-  { correct: "foul", misspellings: ["fowl", "foule", "faul"], hint: "Very unpleasant; an illegal action in a sport." },
-  { correct: "noble", misspellings: ["nobble", "nobul", "nobile"], hint: "Having high moral qualities; belonging to the nobility." },
-  { correct: "policy", misspellings: ["polisy", "polisee", "pollicy"], hint: "A set of rules or plans made by an organization or government." },
-  { correct: "quiver", misspellings: ["quivver", "quivar", "quivur"], hint: "To shake slightly; a container for arrows." },
-  { correct: "slight", misspellings: ["slite", "slieght", "sligh"], hint: "Small in degree; barely noticeable." },
-  { correct: "tidy", misspellings: ["tidey", "tiddy", "tiddy"], hint: "Neat and in order; clean and organized." },
-
-  // ── VOCABULARY SET 7 ─────────────────────────────────────
-  { correct: "accurate", misspellings: ["accurite", "accuret", "accurat"], hint: "Correct in every detail; without mistakes." },
-  { correct: "alert", misspellings: ["alart", "alerrt", "elert"], hint: "Quick to notice things; a warning signal." },
-  { correct: "ancestor", misspellings: ["ancestur", "ancessor", "ancestore"], hint: "A person from your family who lived long before you." },
-  { correct: "disaster", misspellings: ["desaster", "disaaster", "disasster"], hint: "A sudden event causing great damage or loss." },
-  { correct: "elementary", misspellings: ["elementery", "elemetery", "elementree"], hint: "At the most basic level; relating to elementary school." },
-  { correct: "envy", misspellings: ["envey", "envi", "envvy"], hint: "Wanting something that belongs to someone else." },
-  { correct: "epidemic", misspellings: ["epidemick", "epidemik", "epudemic"], hint: "A widespread outbreak of a disease in a community." },
-  { correct: "feeble", misspellings: ["feebel", "feabal", "feabel"], hint: "Weak and lacking strength or energy." },
-  { correct: "penetrate", misspellings: ["pennetrate", "penetraite", "penitrate"], hint: "To go through or into something." },
-  { correct: "romp", misspellings: ["rompe", "rhomp", "rompt"], hint: "To play in a lively, boisterous way." },
-  { correct: "staple", misspellings: ["stapple", "stapel", "sttaple"], hint: "A main or essential item; a small wire clip for paper." },
-  { correct: "survive", misspellings: ["surviev", "survivve", "surviv"], hint: "To continue living through a dangerous situation." },
-
-  // ── VOCABULARY SET 8 ─────────────────────────────────────
-  { correct: "awkward", misspellings: ["aukward", "awkwerd", "awkwarde"], hint: "Clumsy or uncomfortable; not smooth or graceful." },
-  { correct: "clatter", misspellings: ["clattur", "clatar", "clattar"], hint: "A loud, rattling noise made by hard objects striking together." },
-  { correct: "gallant", misspellings: ["gallent", "galant", "gallannt"], hint: "Brave and heroic; very polite and respectful." },
-  { correct: "lukewarm", misspellings: ["lukewarm", "luke-warm", "lukwarm"], hint: "Only slightly warm; showing little enthusiasm." },
-  { correct: "plentiful", misspellings: ["plentiful", "plentifull", "plenteful"], hint: "Existing in large amounts; more than enough." },
-  { correct: "ration", misspellings: ["rashon", "raition", "ratoin"], hint: "A fixed allowance of food or supplies; to limit use." },
-  { correct: "reserve", misspellings: ["reserv", "resarve", "resserve"], hint: "To set aside for a special purpose; to book in advance." },
-  { correct: "scholar", misspellings: ["scholer", "schollar", "scollar"], hint: "A person who studies a subject deeply and knows it well." },
-  { correct: "smolder", misspellings: ["smoldur", "smoldar", "smoulder"], hint: "To burn slowly without flames; to feel strong hidden anger." },
-  { correct: "trudge", misspellings: ["truge", "trudg", "trudgge"], hint: "To walk slowly with heavy steps, especially when tired." },
-  { correct: "volunteer", misspellings: ["voluntear", "voluntere", "voluntier"], hint: "To offer to do something without being paid." },
-  { correct: "weary", misspellings: ["weiry", "wery", "weery"], hint: "Very tired, especially after a long effort or journey." },
-
-  // ── VOCABULARY SET 9 ─────────────────────────────────────
-  { correct: "convict", misspellings: ["convickt", "convikt", "convict"], hint: "To find someone guilty of a crime; a person in prison." },
-  { correct: "discipline", misspellings: ["disipline", "discpline", "disiplin"], hint: "Training to follow rules; self-control." },
-  { correct: "dungeon", misspellings: ["dungon", "dungeons", "dungin"], hint: "A dark, underground prison, often in a castle." },
-  { correct: "earnest", misspellings: ["earnist", "earneste", "ernest"], hint: "Serious and sincere in intention." },
-  { correct: "enclose", misspellings: ["inclose", "encloss", "encloze"], hint: "To surround or shut something in on all sides." },
-  { correct: "gradual", misspellings: ["graduall", "gradul", "graduel"], hint: "Happening slowly over time; step by step." },
-  { correct: "grumble", misspellings: ["grumbal", "grumbel", "grumbl"], hint: "To complain in a low, muttering voice." },
-  { correct: "jagged", misspellings: ["jagede", "jaggde", "jaged"], hint: "Having sharp, uneven points or edges." },
-  { correct: "nourish", misspellings: ["nurish", "noursh", "nurrish"], hint: "To provide food and care needed for growth and health." },
-  { correct: "provision", misspellings: ["provicion", "provisoin", "provishun"], hint: "The act of providing something; a supply of food stored up." },
-  { correct: "treaty", misspellings: ["treety", "treatie", "treiti"], hint: "A formal agreement between countries." },
-  { correct: "uneasy", misspellings: ["unesey", "uneaasy", "uneezy"], hint: "Worried or uncomfortable; not settled or calm." },
-
-  // ── VOCABULARY SET 10 ────────────────────────────────────
-  { correct: "distress", misspellings: ["distres", "disstress", "dystress"], hint: "A feeling of great pain, worry, or suffering." },
-  { correct: "drench", misspellings: ["drenche", "drench", "dreanch"], hint: "To make completely wet; to soak thoroughly." },
-  { correct: "dwell", misspellings: ["dwel", "dwelle", "dweel"], hint: "To live in a place; to think or talk too much about something." },
-  { correct: "juvenile", misspellings: ["juvenille", "juvenil", "juvinile"], hint: "Relating to young people; childish behavior." },
-  { correct: "outstanding", misspellings: ["outstandig", "oustanding", "outstandng"], hint: "Excellent; clearly better than others." },
-  { correct: "proceed", misspellings: ["procede", "proceed", "proseed"], hint: "To continue or move forward with an action." },
-  { correct: "register", misspellings: ["registar", "registur", "registre"], hint: "To sign up officially; a record book; part of a cash register." },
-  { correct: "sift", misspellings: ["sifft", "syft", "siftte"], hint: "To pass through a sieve; to examine carefully." },
-  { correct: "spree", misspellings: ["spree", "sprie", "spreee"], hint: "A short period of doing something freely and enjoyably." },
-  { correct: "tardy", misspellings: ["tardey", "tardi", "taredy"], hint: "Late; not arriving on time." },
-  { correct: "unfit", misspellings: ["unfitt", "unfite", "unnfit"], hint: "Not suitable or good enough; in poor physical condition." },
-  { correct: "variety", misspellings: ["varety", "varieety", "vareyety"], hint: "A collection of different types of the same thing." },
-
-  // ── VOCABULARY SET 11 ────────────────────────────────────
-  { correct: "blockade", misspellings: ["blockaid", "blocade", "bloccade"], hint: "Blocking a place to prevent people or supplies from getting in." },
-  { correct: "chant", misspellings: ["chaunt", "chantt", "shant"], hint: "To sing or say words repeatedly in a rhythm." },
-  { correct: "despair", misspellings: ["dispair", "despar", "despayr"], hint: "A complete loss of hope." },
-  { correct: "elevate", misspellings: ["elevaite", "elevete", "ellvate"], hint: "To lift up to a higher position; to improve." },
-  { correct: "extraordinary", misspellings: ["extrodinary", "extraordinery", "extraordinay"], hint: "Very unusual or remarkable; beyond ordinary." },
-  { correct: "heroic", misspellings: ["herioc", "heroick", "herroic"], hint: "Showing great bravery; like a hero." },
-  { correct: "lance", misspellings: ["lanse", "launce", "lansse"], hint: "A long spear used by a knight; to pierce open a wound." },
-  { correct: "missionary", misspellings: ["missionery", "missonary", "missionarie"], hint: "A person sent to spread religious beliefs in another area." },
-  { correct: "pointless", misspellings: ["pointeles", "pointlass", "poyntless"], hint: "Having no purpose or meaning; useless." },
-  { correct: "reflect", misspellings: ["refleckt", "rflect", "refflect"], hint: "To think carefully about something; to bounce back light." },
-  { correct: "site", misspellings: ["sight", "sighte", "syte"], hint: "A place where something is located or has happened." },
-  { correct: "toxic", misspellings: ["toxick", "toxik", "toksic"], hint: "Poisonous; very harmful to living things." },
-
-  // ── VOCABULARY SET 12 ────────────────────────────────────
-  { correct: "bristle", misspellings: ["bristel", "bristal", "brissel"], hint: "A short, stiff hair or fiber; to show anger by stiffening up." },
-  { correct: "circular", misspellings: ["circuler", "circulur", "cirkelur"], hint: "Round like a circle; a notice or leaflet sent to many people." },
-  { correct: "coarse", misspellings: ["corse", "corsse", "coarsee"], hint: "Rough in texture; rude or crude in manner." },
-  { correct: "discard", misspellings: ["discarde", "discerd", "diskard"], hint: "To get rid of something you no longer need." },
-  { correct: "extreme", misspellings: ["extreeme", "extrime", "extremme"], hint: "Very great in degree; reaching the highest level." },
-  { correct: "focus", misspellings: ["focuse", "fokus", "focos"], hint: "To concentrate attention on something; the center of interest." },
-  { correct: "grasp", misspellings: ["graspe", "graps", "grappe"], hint: "To grip firmly; to understand something." },
-  { correct: "inspire", misspellings: ["inspyre", "inspier", "innsire"], hint: "To fill someone with excitement and a desire to do something." },
-  { correct: "magnify", misspellings: ["magnifiy", "magnfiy", "magnifey"], hint: "To make something look larger; to increase in size or importance." },
-  { correct: "marine", misspellings: ["marene", "marrine", "mariene"], hint: "Relating to the sea; a soldier who serves at sea." },
-  { correct: "quake", misspellings: ["quaike", "quaek", "quacke"], hint: "To shake or tremble; an earthquake." },
-  { correct: "troublesome", misspellings: ["troublsome", "troublesom", "troublesum"], hint: "Causing difficulty or problems." },
-
-  // ── VOCABULARY SET 13 ────────────────────────────────────
-  { correct: "abstract", misspellings: ["abstrackt", "abstrakt", "abstruct"], hint: "Relating to ideas rather than objects; not concrete." },
-  { correct: "ally", misspellings: ["allie", "alley", "aly"], hint: "A person or country that helps and supports another." },
-  { correct: "appoint", misspellings: ["appointe", "appoynt", "apponit"], hint: "To choose someone officially for a job or role." },
-  { correct: "attentive", misspellings: ["attentiv", "atentive", "attentiv"], hint: "Paying close attention; considerate of others' needs." },
-  { correct: "bonus", misspellings: ["boenus", "bonnus", "bonuse"], hint: "Something extra, especially extra pay or reward." },
-  { correct: "carefree", misspellings: ["carefree", "carfree", "carefre"], hint: "Free from worries or responsibilities; lighthearted." },
-  { correct: "courtesy", misspellings: ["curtesy", "courtasy", "courtesey"], hint: "Polite and considerate behavior toward others." },
-  { correct: "manufacture", misspellings: ["manufactur", "manufacure", "mannufacture"], hint: "To make goods in large amounts using machines." },
-  { correct: "mistrust", misspellings: ["misstrust", "missstrut", "mistruts"], hint: "Lack of trust or confidence in someone." },
-  { correct: "noticeable", misspellings: ["notcieable", "noticible", "noticeabel"], hint: "Easy to see or notice; obvious." },
-  { correct: "overthrow", misspellings: ["ovarthrow", "overthrowe", "overtrow"], hint: "To remove a leader or government from power by force." },
-  { correct: "peculiar", misspellings: ["peckuliar", "peculier", "pekuliar"], hint: "Strange or unusual; belonging exclusively to someone." },
-
-  // ── VOCABULARY SET 14 ────────────────────────────────────
-  { correct: "absolute", misspellings: ["absolut", "absoloote", "absulute"], hint: "Complete and total; not limited in any way." },
-  { correct: "arena", misspellings: ["areena", "arenna", "arena"], hint: "A large space used for sports or performances." },
-  { correct: "compliment", misspellings: ["complement", "complimint", "complimant"], hint: "A nice thing you say to praise or flatter someone." },
-  { correct: "deliberate", misspellings: ["deliberit", "deliberaite", "delibrate"], hint: "Done on purpose; to think something over carefully." },
-  { correct: "dense", misspellings: ["dence", "densse", "dens"], hint: "Closely packed together; thick; slow to understand." },
-  { correct: "dominant", misspellings: ["dominint", "dominante", "dominente"], hint: "Most powerful or important; having the most influence." },
-  { correct: "hazardous", misspellings: ["hazardus", "hazerdous", "hazardious"], hint: "Dangerous or risky; likely to cause harm." },
-  { correct: "huddle", misspellings: ["hudal", "houddle", "huddel"], hint: "To crowd together; a brief team meeting in football." },
-  { correct: "necessity", misspellings: ["necesity", "necessety", "necessitty"], hint: "Something that is absolutely needed; a requirement." },
-  { correct: "offend", misspellings: ["offende", "ofend", "offnd"], hint: "To make someone feel upset or angry." },
-  { correct: "regain", misspellings: ["regaine", "ragain", "regaen"], hint: "To get something back that was lost." },
-  { correct: "thorough", misspellings: ["thurrow", "thorogh", "thorugh"], hint: "Complete and careful; leaving nothing out." },
-
-  // ── VOCABULARY SET 15 ────────────────────────────────────
-  { correct: "adopt", misspellings: ["addopt", "adopte", "adoopt"], hint: "To take someone into your family; to begin using something." },
-  { correct: "agile", misspellings: ["agille", "agiel", "ajile"], hint: "Able to move quickly and easily; nimble." },
-  { correct: "analyze", misspellings: ["analise", "analize", "analyize"], hint: "To study something carefully to understand it better." },
-  { correct: "assist", misspellings: ["assit", "assiste", "assisst"], hint: "To help or support someone." },
-  { correct: "babble", misspellings: ["babbal", "babbel", "babal"], hint: "To talk quickly in a confused way; a gentle sound of water." },
-  { correct: "captivity", misspellings: ["captivety", "captivitty", "captyvity"], hint: "The state of being kept as a prisoner or in an enclosure." },
-  { correct: "drab", misspellings: ["drabb", "drabe", "drob"], hint: "Dull and lacking brightness or color." },
-  { correct: "fatal", misspellings: ["fattal", "fatale", "fatel"], hint: "Causing death; having very bad consequences." },
-  { correct: "generosity", misspellings: ["generocity", "generossity", "generosety"], hint: "The quality of being kind and giving freely." },
-  { correct: "genuine", misspellings: ["genuwine", "genuiene", "genuinne"], hint: "Real and true; not fake or pretend." },
-  { correct: "illegal", misspellings: ["ilegal", "illegale", "illegel"], hint: "Against the law; not permitted." },
-  { correct: "merit", misspellings: ["merrit", "meret", "merit"], hint: "The quality of being good or deserving praise." },
-
-  // ── VOCABULARY SET 16 ────────────────────────────────────
-  { correct: "adorn", misspellings: ["adornn", "adorne", "addorn"], hint: "To decorate or add beautiful things to something." },
-  { correct: "appropriate", misspellings: ["appropreate", "appropriat", "apropriate"], hint: "Suitable or proper for a particular situation." },
-  { correct: "assemble", misspellings: ["assembel", "asemble", "assembllee"], hint: "To put parts together; to gather in one place." },
-  { correct: "colossal", misspellings: ["collosal", "colossal", "colosal"], hint: "Extremely large; gigantic." },
-  { correct: "effective", misspellings: ["effectiv", "affective", "effectve"], hint: "Producing the result that was intended; successful." },
-  { correct: "frail", misspellings: ["fraile", "frayl", "frael"], hint: "Weak and delicate; not strong." },
-  { correct: "hostage", misspellings: ["hostaje", "hostege", "hostaige"], hint: "A person held as a prisoner until demands are met." },
-  { correct: "landslide", misspellings: ["landsclide", "landsslide", "landslid"], hint: "A mass of rock or earth sliding down a slope; a big election win." },
-  { correct: "rampage", misspellings: ["rampaje", "rampege", "rampaje"], hint: "A period of wild, violent behavior." },
-  { correct: "scamper", misspellings: ["scampur", "skamper", "scampor"], hint: "To run quickly with light, short steps." },
-  { correct: "symptom", misspellings: ["symptome", "sympton", "simtom"], hint: "A sign that shows you might have an illness." },
-  { correct: "warrant", misspellings: ["warant", "warrantt", "warrent"], hint: "A legal document giving authority; to deserve or justify." },
-
-  // ── VOCABULARY SET 17 ────────────────────────────────────
-  { correct: "approximate", misspellings: ["approximait", "aproximate", "approximete"], hint: "Close to the actual amount but not exactly right." },
-  { correct: "construct", misspellings: ["consstruct", "constuct", "constructt"], hint: "To build or put together." },
-  { correct: "crude", misspellings: ["creude", "crood", "crued"], hint: "In a natural, unfinished state; rough or rude." },
-  { correct: "decline", misspellings: ["declin", "declyne", "declone"], hint: "To become smaller or weaker; to politely say no." },
-  { correct: "distinct", misspellings: ["distint", "distinkct", "distinctt"], hint: "Clearly different; easily noticed." },
-  { correct: "evident", misspellings: ["evadent", "evidint", "evidinte"], hint: "Clear and obvious; easy to see or understand." },
-  { correct: "impulse", misspellings: ["immpulse", "impluse", "inpulse"], hint: "A sudden, strong urge to do something." },
-  { correct: "interpret", misspellings: ["interprit", "interprut", "inturpret"], hint: "To explain the meaning of something; to translate." },
-  { correct: "orient", misspellings: ["oriant", "orientt", "orrent"], hint: "To find your position or direction; relating to the East." },
-  { correct: "sector", misspellings: ["sectur", "sectar", "sektor"], hint: "A distinct part or section of a larger area or activity." },
-  { correct: "submit", misspellings: ["submmit", "submite", "submitt"], hint: "To hand in or present for review; to give in to authority." },
-  { correct: "zest", misspellings: ["zestt", "zeste", "zesst"], hint: "Great enthusiasm and energy; a piece of citrus peel." },
-
-  // ── VOCABULARY SET 18 ────────────────────────────────────
-  { correct: "abide", misspellings: ["abyde", "abied", "abiide"], hint: "To tolerate or accept; to follow a rule." },
-  { correct: "contrast", misspellings: ["constrast", "contrasst", "contraste"], hint: "A clear difference between two things." },
-  { correct: "depress", misspellings: ["depres", "depresss", "dipres"], hint: "To make someone feel sad; to press something down." },
-  { correct: "dismal", misspellings: ["dismall", "dimal", "dismel"], hint: "Causing sadness; very bad or depressing." },
-  { correct: "dispose", misspellings: ["dispoze", "disposs", "disspose"], hint: "To get rid of something; to arrange or settle." },
-  { correct: "exaggerate", misspellings: ["exagarate", "exageraite", "exaggerait"], hint: "To describe something as larger or more extreme than it is." },
-  { correct: "indifferent", misspellings: ["indifrent", "indiferrent", "indiffrent"], hint: "Not caring about something; having no interest or feeling." },
-  { correct: "jubilant", misspellings: ["jubilent", "jubulent", "jubilannt"], hint: "Feeling or expressing great happiness and triumph." },
-  { correct: "manual", misspellings: ["manuall", "manuale", "menuall"], hint: "Done by hand; a book of instructions." },
-  { correct: "originate", misspellings: ["originaite", "originate", "oringnate"], hint: "To begin or start; to have a particular beginning or source." },
-  { correct: "recognition", misspellings: ["recogniton", "recognitiion", "recogntion"], hint: "The act of knowing or identifying something; praise for achievement." },
-  { correct: "tribute", misspellings: ["tributte", "tribbute", "tribbute"], hint: "Something done or given to show respect or gratitude." },
-];
+    /*************************************************************
+     * 1. CONFIGURABLE SPELLING WORD LIST
+     *************************************************************/
+    const spellingWords = [
+      { correct: "beautiful", misspellings: ["beautifull", "beautful", "beatiful"], hint: "Very pretty or pleasing to look at." },
+      { correct: "government", misspellings: ["goverment", "governmente", "govrement"], hint: "The group of people who control a country." },
+      { correct: "necessary", misspellings: ["neccessary", "necesary", "neccesary"], hint: "Absolutely needed; essential." },
+      { correct: "separate", misspellings: ["seperate", "seperat", "sepereate"], hint: "To split or divide into parts." },
+      { correct: "definitely", misspellings: ["definately", "definatly", "definetely"], hint: "Without a doubt; completely certain." },
+      { correct: "tomorrow", misspellings: ["tommorow", "tomorrowe", "tomorow"], hint: "The day after today." },
+      { correct: "because", misspellings: ["becuase", "becasue", "beacuse"], hint: "For the reason that; since." },
+      { correct: "library", misspellings: ["libery", "librery", "libruary"], hint: "A quiet place filled with books." },
+      { correct: "different", misspellings: ["diffrent", "diferent", "differrent"], hint: "Not the same as another; unique." },
+      { correct: "believe", misspellings: ["beleive", "belive", "beleeve"], hint: "To accept that something is true or real." },
+      { correct: "probably", misspellings: ["probly", "probabely", "probbly"], hint: "Most likely to happen." },
+      { correct: "friend", misspellings: ["freind", "frend", "friand"], hint: "A person you know well and like." },
+      { correct: "receive", misspellings: ["recieve", "receve", "receivee"], hint: "To get or be given something." },
+      { correct: "weather", misspellings: ["wether", "whether", "weathar"], hint: "The state of the atmosphere (rain, wind)." },
+      { correct: "favorite", misspellings: ["faverite", "favrit", "favourit"], hint: "The one you like best of all." }
+    ];
 
     /*************************************************************
-     * 2. AUDIO SYNTHESIS ENGINE (Using Web Audio API)
+     * 2. AUDIO SYNTHESIS ENGINE
      *************************************************************/
     let audioCtx = null;
 
@@ -1300,16 +395,12 @@ const spellingWords = [
 
     function playCorrectSound() {
       playTone(523.25, 'triangle', 0.1, 0.04); 
-      setTimeout(() => {
-        playTone(659.25, 'triangle', 0.2, 0.04); 
-      }, 70);
+      setTimeout(() => playTone(659.25, 'triangle', 0.2, 0.04), 70);
     }
 
     function playIncorrectSound() {
-      playTone(220, 'sawtooth', 0.15, 0.03); 
-      setTimeout(() => {
-        playTone(165, 'sawtooth', 0.3, 0.03); 
-      }, 80);
+      playTone(220, 'sawtooth', 0.15, 0.04); 
+      setTimeout(() => playTone(165, 'sawtooth', 0.3, 0.04), 80);
     }
 
     function playClockTick() {
@@ -1323,15 +414,12 @@ const spellingWords = [
       setTimeout(() => playTone(880, 'triangle', 0.3, 0.08), 300);
     }
 
-    // Speech synthesizer for Spelling
     function speakWord() {
       if (!currentQuestion || !currentQuestion.correctAnswer) return;
       try {
         const textToSpeak = currentQuestion.correctAnswer;
         const synth = window.speechSynthesis;
-        if (synth.speaking) {
-          synth.cancel();
-        }
+        if (synth.speaking) synth.cancel();
         const utterance = new SpeechSynthesisUtterance(textToSpeak);
         utterance.rate = 0.80; 
         utterance.pitch = 1.0;
@@ -1342,7 +430,7 @@ const spellingWords = [
     }
 
     /*************************************************************
-     * 3. STATE VARIABLES
+     * 3. STATE VARIABLES & COOL-DOWN PENALTY TRACKING
      *************************************************************/
     let gameMode = 'choice'; 
     let sectionsQueue = []; 
@@ -1350,6 +438,8 @@ const spellingWords = [
     let sectionTimer = 60.0;
     let timerInterval = null;
     let currentQuestion = null;
+    let isCoolingDown = false;      // Input lock during penalty freeze
+    let consecutiveErrors = 0;     // Escalates cool-down time on repeated spamming
     
     let scoreTracker = {
       addition: { correct: 0, incorrect: 0 },
@@ -1365,7 +455,6 @@ const spellingWords = [
     window.onload = function() {
       checkUserIdentity();
       
-      // Forced uppercase validation on input fields
       document.getElementById('first-name-input').addEventListener('input', function(e) {
         e.target.value = e.target.value.toUpperCase();
       });
@@ -1414,12 +503,12 @@ const spellingWords = [
       initAudio();
       gameMode = mode;
       document.querySelectorAll('.mode-btn').forEach(btn => {
-        btn.className = "mode-btn py-2 px-3 rounded border border-zinc-800 bg-transparent text-zinc-500 font-mono font-bold transition-all text-xs uppercase tracking-wider";
+        btn.className = "mode-btn py-1.5 px-2 rounded border border-zinc-850 bg-transparent text-zinc-500 font-mono font-bold transition-all text-xs uppercase tracking-wider";
       });
       if (mode === 'choice') {
-        document.getElementById('mode-choice-btn').className = "mode-btn py-2 px-3 rounded border-2 border-amber-500 bg-amber-500/10 text-amber-500 font-mono font-bold transition-all text-xs uppercase tracking-wider";
+        document.getElementById('mode-choice-btn').className = "mode-btn py-1.5 px-2 rounded border-2 border-amber-500 bg-amber-500/10 text-amber-500 font-mono font-bold transition-all text-xs uppercase tracking-wider";
       } else {
-        document.getElementById('mode-type-btn').className = "mode-btn py-2 px-3 rounded border-2 border-amber-500 bg-amber-500/10 text-amber-500 font-mono font-bold transition-all text-xs uppercase tracking-wider";
+        document.getElementById('mode-type-btn').className = "mode-btn py-1.5 px-2 rounded border-2 border-amber-500 bg-amber-500/10 text-amber-500 font-mono font-bold transition-all text-xs uppercase tracking-wider";
       }
       playTone(400, 'sine', 0.1, 0.05);
     }
@@ -1440,8 +529,9 @@ const spellingWords = [
 
     function startGame() {
       initAudio();
+      isCoolingDown = false;
+      consecutiveErrors = 0;
       
-      // Reset score objects
       scoreTracker = {
         addition: { correct: 0, incorrect: 0 },
         subtraction: { correct: 0, incorrect: 0 },
@@ -1450,7 +540,6 @@ const spellingWords = [
         spelling: { correct: 0, incorrect: 0 }
       };
 
-      // Randomize round sequence
       const sections = ['addition', 'subtraction', 'multiplication', 'division', 'spelling'];
       sectionsQueue = [];
       while (sections.length > 0) {
@@ -1465,6 +554,8 @@ const spellingWords = [
     function startTransitionToNextRound() {
       clearInterval(timerInterval);
       hideAllScreens();
+      isCoolingDown = false;
+      consecutiveErrors = 0;
       
       const currentSection = sectionsQueue[currentSectionIndex];
       const sectionFormatted = formatSectionName(currentSection);
@@ -1502,7 +593,6 @@ const spellingWords = [
       document.getElementById('round-indicator').innerText = `${currentSectionIndex + 1}/5`;
       updateLiveScore();
 
-      // Configure interface modes
       if (gameMode === 'choice') {
         document.getElementById('multiple-choice-container').classList.remove('hidden');
         document.getElementById('typing-container').classList.add('hidden');
@@ -1517,7 +607,6 @@ const spellingWords = [
         document.getElementById('spelling-tts-helper').classList.add('hidden');
       }
 
-      // Initialize 100ms precise timer
       sectionTimer = 60.0;
       document.getElementById('timer-display').innerText = sectionTimer.toFixed(1);
       document.getElementById('time-bar').style.width = '100%';
@@ -1531,12 +620,11 @@ const spellingWords = [
         const percentage = (sectionTimer / 60.0) * 100;
         document.getElementById('time-bar').style.width = `${percentage}%`;
 
-        // Pulse red on low time
         const timerContainer = document.getElementById('timer-display');
         if (sectionTimer <= 10.0) {
-          timerContainer.className = "industrial-font text-4xl md:text-5xl font-extrabold text-rose-500 tabular-nums animate-pulse";
+          timerContainer.className = "industrial-font text-3xl md:text-4xl font-extrabold text-rose-500 tabular-nums animate-pulse";
         } else {
-          timerContainer.className = "industrial-font text-4xl md:text-5xl font-extrabold text-amber-500 tabular-nums";
+          timerContainer.className = "industrial-font text-3xl md:text-4xl font-extrabold text-amber-500 tabular-nums";
         }
 
         const currentWholeSecond = Math.ceil(sectionTimer);
@@ -1571,7 +659,9 @@ const spellingWords = [
         totalCorrect += scoreTracker[sec].correct;
         totalIncorrect += scoreTracker[sec].incorrect;
       });
-      document.getElementById('live-score-display').innerText = totalCorrect - totalIncorrect;
+      // Floor net score at 0 minimum
+      const netScore = Math.max(0, totalCorrect - totalIncorrect);
+      document.getElementById('live-score-display').innerText = netScore;
     }
 
     /*************************************************************
@@ -1589,6 +679,7 @@ const spellingWords = [
       let correctAns = '';
       let wrongAnswers = [];
       let labelText = "COMPUTING_PULSE";
+      let fullEquationDisplay = "";
 
       if (section === 'addition') {
         const min = MATH_CONFIG.addition.minVal;
@@ -1600,6 +691,7 @@ const spellingWords = [
         qText = `${num1} + ${num2}`;
         qHint = "Find the sum";
         labelText = "MATH_ADD_CORE";
+        fullEquationDisplay = `${num1} + ${num2} = ${correctAns}`;
         
         const ansInt = parseInt(correctAns);
         wrongAnswers = [(ansInt + 2).toString(), (ansInt - 2).toString(), (ansInt + 10).toString(), (ansInt - 1).toString()];
@@ -1609,12 +701,13 @@ const spellingWords = [
         const min = MATH_CONFIG.subtraction.minVal;
         const max = MATH_CONFIG.subtraction.maxVal;
         const num1 = Math.floor(Math.random() * (max - min + 1)) + min;
-        const num2 = Math.floor(Math.random() * (num1 - min)) + min; // positive result
+        const num2 = Math.floor(Math.random() * (num1 - min)) + min;
         
         correctAns = (num1 - num2).toString();
         qText = `${num1} - ${num2}`;
         qHint = "Find the difference";
         labelText = "MATH_SUB_CORE";
+        fullEquationDisplay = `${num1} - ${num2} = ${correctAns}`;
         
         const ansInt = parseInt(correctAns);
         wrongAnswers = [(ansInt + 1).toString(), (ansInt - 1).toString(), (ansInt + 3).toString(), (ansInt + 10).toString()];
@@ -1630,6 +723,7 @@ const spellingWords = [
         qText = `${num1} \u00d7 ${num2}`;
         qHint = "Multiply the factors";
         labelText = "MATH_MULT_CORE";
+        fullEquationDisplay = `${num1} \u00d7 ${num2} = ${correctAns}`;
         
         const ansInt = parseInt(correctAns);
         wrongAnswers = [(ansInt + num1).toString(), (ansInt - num2).toString(), (ansInt + 10).toString(), (ansInt + 4).toString()];
@@ -1649,6 +743,7 @@ const spellingWords = [
         qText = `${num1} \u00f7 ${num2}`;
         qHint = "Solve the quotient";
         labelText = "MATH_DIV_CORE";
+        fullEquationDisplay = `${num1} \u00f7 ${num2} = ${correctAns}`;
         
         wrongAnswers = [(ansInt + 1).toString(), (ansInt - 1).toString(), (ansInt + 2).toString(), (ansInt + 5).toString()];
       } 
@@ -1656,15 +751,13 @@ const spellingWords = [
       else if (section === 'spelling') {
         const randomWordObj = spellingWords[Math.floor(Math.random() * spellingWords.length)];
         correctAns = randomWordObj.correct.toLowerCase();
-        labelText = "SPELL_VAL_ERR";
         qHint = `Clue: ${randomWordObj.hint}`;
+        fullEquationDisplay = `CORRECT SPELLING: ${correctAns.toUpperCase()}`;
         
-        // Custom prompt depending on Choice vs Typing
         if (gameMode === 'choice') {
           qText = "SELECT CORRECT WORD:";
           labelText = "SPELL_MATCH_CORE";
         } else {
-          // Show realistic misspelling for spelling correction in typing mode
           const randomMisspelling = randomWordObj.misspellings[Math.floor(Math.random() * randomWordObj.misspellings.length)];
           qText = randomMisspelling.toUpperCase();
           labelText = "FIX SPELLING ERROR:";
@@ -1673,7 +766,6 @@ const spellingWords = [
         wrongAnswers = randomWordObj.misspellings.map(w => w.toLowerCase());
       }
 
-      // Filter and clean choices
       wrongAnswers = [...new Set(wrongAnswers)].filter(ans => ans !== correctAns);
       while(wrongAnswers.length < 3) {
         if (section !== 'spelling') {
@@ -1694,15 +786,14 @@ const spellingWords = [
       currentQuestion = {
         correctAnswer: correctAns,
         allChoices: shuffledChoices,
-        section: section
+        section: section,
+        fullDisplay: fullEquationDisplay
       };
 
-      // Apply texts to card
       document.getElementById('question-label').innerText = labelText;
       document.getElementById('question-text').innerText = qText;
       document.getElementById('question-hint').innerText = qHint;
 
-      // Render choice buttons
       if (gameMode === 'choice') {
         for (let i = 0; i < 4; i++) {
           const buttonContent = shuffledChoices[i];
@@ -1710,9 +801,9 @@ const spellingWords = [
           
           btnTextSpan.innerText = buttonContent;
           if (section === 'spelling') {
-            btnTextSpan.className = "industrial-font text-base lowercase tracking-wider text-zinc-200";
+            btnTextSpan.className = "industrial-font text-sm md:text-base lowercase tracking-wider text-zinc-200";
           } else {
-            btnTextSpan.className = "industrial-font text-lg md:text-xl font-bold text-zinc-200";
+            btnTextSpan.className = "industrial-font text-base md:text-lg font-bold text-zinc-200";
           }
         }
       }
@@ -1723,17 +814,17 @@ const spellingWords = [
     }
 
     /*************************************************************
-     * 7. ANSWER CORRECTION ENGINE
+     * 7. ANSWER CORRECTION ENGINE & COOL-DOWN PENALTY
      *************************************************************/
     function checkMultipleChoice(selectedIndex) {
-      if (!currentQuestion) return;
+      if (isCoolingDown || !currentQuestion) return;
       const chosen = currentQuestion.allChoices[selectedIndex];
       submitAndEvaluate(chosen);
     }
 
     function submitTyping(event) {
       event.preventDefault();
-      if (!currentQuestion) return;
+      if (isCoolingDown || !currentQuestion) return;
       const typeInput = document.getElementById('typing-input');
       const chosen = typeInput.value.trim().toLowerCase();
       if (!chosen) return; 
@@ -1746,28 +837,63 @@ const spellingWords = [
 
       if (isCorrect) {
         scoreTracker[section].correct++;
+        consecutiveErrors = Math.max(0, consecutiveErrors - 1); // Reward good streak
         playCorrectSound();
         showVisualFeedback('correct');
+        updateLiveScore();
+        generateNewQuestion(section);
       } else {
         scoreTracker[section].incorrect++;
+        consecutiveErrors++;
         playIncorrectSound();
         showVisualFeedback('incorrect');
+        updateLiveScore();
+        
+        // Trigger anti-spam cool-down lock
+        triggerCoolDownPenalty();
       }
+    }
 
-      updateLiveScore();
-      generateNewQuestion(section);
+    function triggerCoolDownPenalty() {
+      isCoolingDown = true;
+
+      // Base lock duration: 1.5 seconds, escalating up to 3.0 seconds if spamming repeatedly
+      const penaltySeconds = Math.min(3.0, 1.5 + ((consecutiveErrors - 1) * 0.5));
+      
+      const overlay = document.getElementById('cooldown-overlay');
+      const correctTextEl = document.getElementById('cooldown-correct-text');
+      const secondsTextEl = document.getElementById('cooldown-seconds-text');
+
+      correctTextEl.innerText = currentQuestion.fullDisplay;
+      secondsTextEl.innerText = `${penaltySeconds.toFixed(1)}s`;
+      overlay.classList.remove('hidden');
+
+      let remainingMs = penaltySeconds * 1000;
+      const stepMs = 100;
+
+      const penaltyInterval = setInterval(() => {
+        remainingMs -= stepMs;
+        if (remainingMs > 0) {
+          secondsTextEl.innerText = `${(remainingMs / 1000).toFixed(1)}s`;
+        } else {
+          clearInterval(penaltyInterval);
+          overlay.classList.add('hidden');
+          isCoolingDown = false;
+          generateNewQuestion(currentQuestion.section);
+        }
+      }, stepMs);
     }
 
     function showVisualFeedback(status) {
       const overlay = document.getElementById('flash-overlay');
       if (status === 'correct') {
-        overlay.className = "absolute inset-0 pointer-events-none bg-emerald-500/20 transition-all duration-75 opacity-100";
+        overlay.className = "absolute inset-0 pointer-events-none bg-emerald-500/20 transition-all duration-75 opacity-100 z-10";
       } else {
-        overlay.className = "absolute inset-0 pointer-events-none bg-rose-500/30 transition-all duration-75 opacity-100";
+        overlay.className = "absolute inset-0 pointer-events-none bg-rose-500/30 transition-all duration-75 opacity-100 z-10";
       }
       
       setTimeout(() => {
-        overlay.className = "absolute inset-0 pointer-events-none transition-all duration-150 opacity-0";
+        overlay.className = "absolute inset-0 pointer-events-none transition-all duration-150 opacity-0 z-10";
       }, 180);
     }
 
@@ -1789,17 +915,16 @@ const spellingWords = [
         totalCorrect += stats.correct;
         totalIncorrect += stats.incorrect;
 
-        // Render sections in detailed breakdown table
         document.getElementById(`report-${sec}-correct`).innerText = stats.correct;
         document.getElementById(`report-${sec}-incorrect`).innerText = stats.incorrect;
       });
 
-      // Show Net total score calculation: Correct minus Incorrect
-      const finalNetScore = totalCorrect - totalIncorrect;
-      document.getElementById('final-grand-total').innerText = finalNetScore;
+      // Calculate Net Score with 0 floor safeguard
+      const netScore = Math.max(0, totalCorrect - totalIncorrect);
+      document.getElementById('final-grand-total').innerText = netScore;
 
-      // Automatically dispatch telemetry data to Google Sheets
-      sendDataToGoogleSheet(finalNetScore);
+      // Dispatch data to Google Sheets
+      sendDataToGoogleSheet(netScore);
     }
 
     function sendDataToGoogleSheet(netScore) {
@@ -1807,15 +932,13 @@ const spellingWords = [
       
       if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL === "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL") {
         statusEl.innerText = "SYS_STATUS // SYNC_BYPASSED (URL NOT SET)";
-        statusEl.className = "industrial-font text-[10px] text-zinc-500 uppercase tracking-widest py-1";
+        statusEl.className = "industrial-font text-[9px] text-zinc-500 uppercase tracking-widest py-0.5";
         return;
       }
 
-      // Format current timestamp
       const today = new Date();
       const formattedDate = `${today.getMonth() + 1}/${today.getDate()}/${today.getFullYear()}`;
 
-      // Assemble payload matching student headers precisely
       const payload = {
         Last: localStorage.getItem('speedrun_lastname') || 'UNKNOWN',
         First: localStorage.getItem('speedrun_firstname') || 'UNKNOWN',
@@ -1835,11 +958,11 @@ const spellingWords = [
       };
 
       statusEl.innerText = "SYS_STATUS // SYNCING_RECORDS_TO_SHEET...";
-      statusEl.className = "industrial-font text-[10px] text-amber-500 uppercase tracking-widest py-1 animate-pulse";
+      statusEl.className = "industrial-font text-[9px] text-amber-500 uppercase tracking-widest py-0.5 animate-pulse";
 
       fetch(GOOGLE_SCRIPT_URL, {
         method: 'POST',
-        mode: 'no-cors', // Bypasses browser strict sandbox restrictions in classroom setups
+        mode: 'no-cors',
         headers: {
           'Content-Type': 'application/json'
         },
@@ -1847,12 +970,12 @@ const spellingWords = [
       })
       .then(() => {
         statusEl.innerText = "SYS_STATUS // RECORD_COMMITTED_SUCCESSFULLY ✓";
-        statusEl.className = "industrial-font text-[10px] text-emerald-500 uppercase tracking-widest py-1";
+        statusEl.className = "industrial-font text-[9px] text-emerald-500 uppercase tracking-widest py-0.5";
       })
       .catch((error) => {
         console.error("Transmission loss:", error);
         statusEl.innerText = "SYS_STATUS // PIPELINE_FAIL (CHECK INTERNET)";
-        statusEl.className = "industrial-font text-[10px] text-rose-500 uppercase tracking-widest py-1";
+        statusEl.className = "industrial-font text-[9px] text-rose-500 uppercase tracking-widest py-0.5";
       });
     }
 
@@ -1873,7 +996,7 @@ const spellingWords = [
       const typingInput = document.getElementById('typing-input');
       const gameplay = document.getElementById('gameplay-screen');
       
-      if (gameplay && !gameplay.classList.contains('hidden') && gameMode === 'type' && document.activeElement !== typingInput) {
+      if (gameplay && !gameplay.classList.contains('hidden') && gameMode === 'type' && !isCoolingDown && document.activeElement !== typingInput) {
         if (e.key.length === 1 || e.key === 'Backspace') {
           typingInput.focus();
         }
